@@ -20,7 +20,7 @@ extension UITableView {
             return bridge.table
         }
         set {
-            setWeakAssociatedValue(Bridge(tableView: self, table: newValue), forProperty: "table", ofObject: self)
+            setAssociatedValue(Bridge(tableView: self, table: newValue), forProperty: "table", ofObject: self)
         }
     }
     
