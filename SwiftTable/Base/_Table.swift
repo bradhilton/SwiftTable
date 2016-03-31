@@ -24,11 +24,7 @@ extension _Table {
     }
     
     var _parent: ParentInterface {
-        return parent ?? {
-            let tableView = UITableView()
-            tableView.setUp()
-            return Bridge(tableView: tableView)
-        }()
+        return parent ?? Bridge(tableView: UITableView())
     }
     
 }
