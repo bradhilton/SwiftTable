@@ -16,10 +16,11 @@ extension UITableView {
     
     public weak var table: TableSource? {
         get {
-            return getAssociatedValueForProperty("table", ofObject: self)
+            guard let bridge: Bridge = getAssociatedValueForProperty("table", ofObject: self) else { return nil }
+            return bridge.table
         }
         set {
-            setWeakAssociatedValue(newValue as? AnyObject, forProperty: "table", ofObject: self)
+            setWeakAssociatedValue(Bridge(tableView: self, table: newValue), forProperty: "table", ofObject: self)
         }
     }
     
