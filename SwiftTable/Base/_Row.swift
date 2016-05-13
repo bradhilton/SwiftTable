@@ -7,9 +7,10 @@
 //
 
 import AssociatedValues
+import OrderedObjectSet
 
 class EmptySection : RowSection {
-    var rows = OrderedSet<RowSource>()
+    var rows = OrderedObjectSet<RowSource>()
 }
 
 public protocol _Row : class {

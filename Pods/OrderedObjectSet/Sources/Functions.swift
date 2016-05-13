@@ -1,12 +1,12 @@
 //
-//  Collapse.swift
-//  OrderedSet
+//  Functions.swift
+//  OrderedObjectSet
 //
 //  Created by Bradley Hilton on 2/19/16.
 //  Copyright © 2016 Brad Hilton. All rights reserved.
 //
 
-internal func copy<T>(orderedSet: OrderedSet<T>, operate: (inout OrderedSet<T>) -> ()) -> OrderedSet<T> {
+internal func copy<T>(orderedSet: OrderedObjectSet<T>, operate: (inout OrderedObjectSet<T>) -> ()) -> OrderedObjectSet<T> {
     var copy = orderedSet
     operate(&copy)
     return copy

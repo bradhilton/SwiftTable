@@ -1,12 +1,12 @@
 //
-//  OrderedSet+_ArrayType.swift
-//  OrderedSet
+//  OrderedObjectSet+_ArrayType.swift
+//  OrderedObjectSet
 //
 //  Created by Bradley Hilton on 2/20/16.
 //  Copyright © 2016 Brad Hilton. All rights reserved.
 //
 
-extension OrderedSet : ArrayLiteralConvertible, RangeReplaceableCollectionType {
+extension OrderedObjectSet : ArrayLiteralConvertible, RangeReplaceableCollectionType {
     
     /// Create an instance containing `elements`.
     public init(arrayLiteral elements: Element...) {
@@ -16,7 +16,7 @@ extension OrderedSet : ArrayLiteralConvertible, RangeReplaceableCollectionType {
         }
     }
     
-    /// Construct an empty OrderedSet.
+    /// Construct an empty OrderedObjectSet.
     public init() {
         self.array = []
         self.set = []
@@ -28,7 +28,7 @@ extension OrderedSet : ArrayLiteralConvertible, RangeReplaceableCollectionType {
     }
     
     /// Replace the given `subRange` of elements with `newElements`.
-    public mutating func replaceRange<C : CollectionType where C.Generator.Element == IndexingGenerator<OrderedSet>.Element>(subRange: Range<Index>, with newElements: C) {
+    public mutating func replaceRange<C : CollectionType where C.Generator.Element == IndexingGenerator<OrderedObjectSet>.Element>(subRange: Range<Index>, with newElements: C) {
         let oldArray = array[subRange]
         let oldSet = Set(oldArray)
         let (newArray, newSet) = collapse(newElements)
@@ -55,6 +55,6 @@ extension OrderedSet : ArrayLiteralConvertible, RangeReplaceableCollectionType {
 }
 
 /// Operator form of `appendContentsOf`.
-public func +=<Element, S : SequenceType where S.Generator.Element == Element>(inout lhs: OrderedSet<Element>, rhs: S) {
+public func +=<Element, S : SequenceType where S.Generator.Element == Element>(inout lhs: OrderedObjectSet<Element>, rhs: S) {
     lhs.appendContentsOf(rhs)
 }

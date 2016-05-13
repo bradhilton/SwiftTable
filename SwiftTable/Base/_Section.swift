@@ -7,9 +7,10 @@
 //
 
 import AssociatedValues
+import OrderedObjectSet
 
 class EmptyTable : SectionTable {
-    var sections = OrderedSet<SectionSource>()
+    var sections = OrderedObjectSet<SectionSource>()
 }
 
 public protocol _Section : class {

@@ -1,6 +1,6 @@
 //
-//  OrderedSet.swift
-//  OrderedSet
+//  OrderedObjectSet.swift
+//  OrderedObjectSet
 //
 //  Created by Bradley Hilton on 2/19/16.
 //  Copyright © 2016 Brad Hilton. All rights reserved.
@@ -9,7 +9,7 @@
 /// An ordered collection of unique `Element` instances.
 /// _Warning_: `Element` must be a class type. Unfortunately this can not be enforced as a generic requirement, because
 /// protocols can't be used as concrete types.
-public struct OrderedSet<Element> : Hashable, CollectionType, MutableCollectionType {
+public struct OrderedObjectSet<Element> : Hashable, CollectionType, MutableCollectionType {
     
     internal(set) var array: [ObjectWrapper]
     internal(set) var set: Set<ObjectWrapper>
@@ -35,7 +35,8 @@ public struct OrderedSet<Element> : Hashable, CollectionType, MutableCollectionT
             set.remove(oldValue)
             array[position] = ObjectWrapper(newValue)
             set.insert(ObjectWrapper(newValue))
-            array = array.enumerate().filter { (index, element) in return index == position || element.hashValue != newValue.hashValue }.map { $0.element }
+            array = array.enumerate().filter { (index, element) in
+                return index == position || element.hashValue != ObjectWrapper(newValue).hashValue }.map { $0.element }
         }
     }
     
@@ -46,7 +47,7 @@ public struct OrderedSet<Element> : Hashable, CollectionType, MutableCollectionT
 }
 
 @warn_unused_result
-public func ==<T>(lhs: OrderedSet<T>, rhs: OrderedSet<T>) -> Bool {
+public func ==<T>(lhs: OrderedObjectSet<T>, rhs: OrderedObjectSet<T>) -> Bool {
     return lhs.set == rhs.set
 }
 

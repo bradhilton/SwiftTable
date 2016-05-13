@@ -7,16 +7,17 @@
 //
 
 import AssociatedValues
+import OrderedObjectSet
 
 public protocol MultiTable : TableSource, ParentInterface {
-    var tables: OrderedSet<TableSource> { get set }
+    var tables: OrderedObjectSet<TableSource> { get set }
 }
 
 extension MultiTable {
     
-    public var tables: OrderedSet<TableSource> {
+    public var tables: OrderedObjectSet<TableSource> {
         get {
-            return getAssociatedValueForProperty("tables", ofObject: self, withInitialValue: OrderedSet())
+            return getAssociatedValueForProperty("tables", ofObject: self, withInitialValue: OrderedObjectSet())
         }
         set {
             tables.subtract(newValue).forEach { $0.parent = nil }

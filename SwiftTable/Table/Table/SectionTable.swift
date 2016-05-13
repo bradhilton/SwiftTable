@@ -7,16 +7,17 @@
 //
 
 import AssociatedValues
+import OrderedObjectSet
 
 public protocol SectionTable : TableSource, TableInterface {
-    var sections: OrderedSet<SectionSource> { get set }
+    var sections: OrderedObjectSet<SectionSource> { get set }
 }
 
 extension SectionTable {
     
-    public var sections: OrderedSet<SectionSource> {
+    public var sections: OrderedObjectSet<SectionSource> {
         get {
-            return getAssociatedValueForProperty("sections", ofObject: self, withInitialValue: OrderedSet())
+            return getAssociatedValueForProperty("sections", ofObject: self, withInitialValue: OrderedObjectSet())
         }
         set {
             sections.subtract(newValue).forEach { $0.table = nil }

@@ -1,12 +1,12 @@
 //
-//  OrderedSet+CustomStringConvertible.swift
-//  OrderedSet
+//  OrderedObjectSet+CustomStringConvertible.swift
+//  OrderedObjectSet
 //
 //  Created by Bradley Hilton on 2/19/16.
 //  Copyright © 2016 Brad Hilton. All rights reserved.
 //
 
-extension OrderedSet : CustomStringConvertible, CustomDebugStringConvertible {
+extension OrderedObjectSet : CustomStringConvertible, CustomDebugStringConvertible {
     
     /// A textual representation of `self`.
     public var description: String {

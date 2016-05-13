@@ -1,0 +1,6 @@
+framework module OrderedObjectSet {
+  umbrella header "OrderedObjectSet-umbrella.h"
+
+  export *
+  module * { export * }
+}

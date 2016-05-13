@@ -1,12 +1,12 @@
 //
-//  OrderedSet+Set.swift
-//  OrderedSet
+//  OrderedObjectSet+Set.swift
+//  OrderedObjectSet
 //
 //  Created by Bradley Hilton on 2/20/16.
 //  Copyright © 2016 Brad Hilton. All rights reserved.
 //
 
-extension OrderedSet {
+extension OrderedObjectSet {
     
     public init(minimumCapacity: Int) {
         self.array = []
@@ -59,13 +59,13 @@ extension OrderedSet {
         return set.isDisjointWith(sequence.map { ObjectWrapper($0 as! AnyObject) })
     }
 
-    /// Return a new `OrderedSet` with items in both this set and a finite sequence.
+    /// Return a new `OrderedObjectSet` with items in both this set and a finite sequence.
     @warn_unused_result
-    public func union<S : SequenceType where S.Generator.Element == Element>(sequence: S) -> OrderedSet {
-        return copy(self) { (inout set: OrderedSet) in set.unionInPlace(sequence) }
+    public func union<S : SequenceType where S.Generator.Element == Element>(sequence: S) -> OrderedObjectSet {
+        return copy(self) { (inout set: OrderedObjectSet) in set.unionInPlace(sequence) }
     }
     
-    /// Append elements of a finite sequence into this `OrderedSet`.
+    /// Append elements of a finite sequence into this `OrderedObjectSet`.
     public mutating func unionInPlace<S : SequenceType where S.Generator.Element == Element>(sequence: S) {
         appendContentsOf(sequence)
     }
@@ -73,8 +73,8 @@ extension OrderedSet {
     /// Return a new ordered set with elements in this set that do not occur
     /// in a finite sequence.
     @warn_unused_result
-    public func subtract<S : SequenceType where S.Generator.Element == Element>(sequence: S) -> OrderedSet {
-        return copy(self) { (inout set: OrderedSet) in set.subtractInPlace(sequence) }
+    public func subtract<S : SequenceType where S.Generator.Element == Element>(sequence: S) -> OrderedObjectSet {
+        return copy(self) { (inout set: OrderedObjectSet) in set.subtractInPlace(sequence) }
     }
 
     /// Remove all members in the ordered set that occur in a finite sequence.
@@ -85,8 +85,8 @@ extension OrderedSet {
     
     /// Return a new ordered set with elements common to this ordered set and a finite sequence.
     @warn_unused_result
-    public func intersect<S : SequenceType where S.Generator.Element == Element>(sequence: S) -> OrderedSet {
-        return copy(self) { (inout set: OrderedSet) in set.intersectInPlace(sequence) }
+    public func intersect<S : SequenceType where S.Generator.Element == Element>(sequence: S) -> OrderedObjectSet {
+        return copy(self) { (inout set: OrderedObjectSet) in set.intersectInPlace(sequence) }
     }
     
     /// Remove any members of this ordered set that aren't also in a finite sequence.
@@ -98,8 +98,8 @@ extension OrderedSet {
     /// Return a new ordered set with elements that are either in the ordered set or a finite
     /// sequence but do not occur in both.
     @warn_unused_result
-    public func exclusiveOr<S : SequenceType where S.Generator.Element == Element>(sequence: S) -> OrderedSet {
-        return copy(self) { (inout set: OrderedSet) in set.exclusiveOrInPlace(sequence) }
+    public func exclusiveOr<S : SequenceType where S.Generator.Element == Element>(sequence: S) -> OrderedObjectSet {
+        return copy(self) { (inout set: OrderedObjectSet) in set.exclusiveOrInPlace(sequence) }
     }
 
     /// For each element of a finite sequence, remove it from the ordered set if it is a
