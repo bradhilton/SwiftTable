@@ -8,8 +8,8 @@
 
 import AssociatedValues
 
-func sectionHeightForStyle(style: UITableViewStyle) -> CGFloat {
-    return style == .Plain ? 24 : 40
+func sectionHeightForStyle(style: UITableViewStyle, header: Bool) -> CGFloat {
+    return style == .Plain ? 24 : (header ? 40 : 30)
 }
 
 extension UITableView {

@@ -42,11 +42,11 @@ extension TableSource {
     }
     
     func defaultHeightForHeaderInSection(section: Int) -> CGFloat {
-        return titleForHeaderInSection(section) != nil ? sectionHeightForStyle(_parent.style) : 0
+        return titleForHeaderInSection(section) != nil ? sectionHeightForStyle(_parent.style, header: true) : 0
     }
     
     func defaultHeightForFooterInSection(section: Int) -> CGFloat {
-        return titleForFooterInSection(section) != nil ? sectionHeightForStyle(_parent.style) : 0
+        return titleForFooterInSection(section) != nil ? sectionHeightForStyle(_parent.style, header: false) : 0
     }
     
     public func viewForHeaderInSection(section: Int) -> UIView? {

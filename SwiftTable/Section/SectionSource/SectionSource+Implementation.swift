@@ -44,11 +44,11 @@ extension SectionSource {
     }
     
     var defaultHeightForHeader: CGFloat {
-        return titleForHeader != nil ? sectionHeightForStyle(_table._parent.style) : 0
+        return titleForHeader != nil ? sectionHeightForStyle(_table._parent.style, header: true) : 0
     }
     
     var defaultHeightForFooter: CGFloat {
-        return titleForFooter != nil ? sectionHeightForStyle(_table._parent.style) : 0
+        return titleForFooter != nil ? sectionHeightForStyle(_table._parent.style, header: false) : 0
     }
     
     public var viewForHeader: UIView? {
