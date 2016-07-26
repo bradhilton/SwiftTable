@@ -22,7 +22,6 @@ class Bridge : NSObject {
         self.table?.parent = self
     }
     
-
     init(tableView: UITableView) {
         super.init()
         self.tableView = tableView

@@ -12,7 +12,10 @@ extension SectionSource where Self : TableSource, Self : TableInterface {
     
     public var table: TableInterface? {
         get {
-            return getAssociatedValueForProperty("table", ofObject: self) ?? self
+            guard let table: TableInterface = getAssociatedValueForProperty("table", ofObject: self) else {
+                return self
+            }
+            return table
         }
         set {
             setWeakAssociatedValue(newValue as? AnyObject, forProperty: "table", ofObject: self)

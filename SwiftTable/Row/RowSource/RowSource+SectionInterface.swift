@@ -12,7 +12,10 @@ extension RowSource where Self : SectionSource, Self : SectionInterface {
     
     public var section: SectionInterface? {
         get {
-            return getAssociatedValueForProperty("section", ofObject: self) ?? self
+            guard let section: SectionInterface = getAssociatedValueForProperty("section", ofObject: self) else {
+                return self
+            }
+            return section
         }
         set {
             setWeakAssociatedValue(newValue as? AnyObject, forProperty: "section", ofObject: self)
