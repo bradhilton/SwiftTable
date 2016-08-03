@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "SwiftTable"
-  s.version      = "0.2.2"
+  s.version      = "0.2.3"
   s.summary      = "Abstraction Over UITableViewDelegate and UITableViewDataSource"
   s.description  = <<-DESC
                     SwiftTable creates an abstraction layer over UITableViewDelegate and UITableViewDataSource that allows you to compose data representations at the row, section and table level.
@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/bradhilton/SwiftTable"
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author       = { "Brad Hilton" => "brad@skyvive.com" }
-  s.source       = { :git => "https://github.com/bradhilton/SwiftTable.git", :tag => "0.2.2" }
+  s.source       = { :git => "https://github.com/bradhilton/SwiftTable.git", :tag => "0.2.3" }
 
   s.ios.deployment_target = "8.0"
 

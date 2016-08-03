@@ -51,16 +51,23 @@ extension MultiTable {
     }
     
     func indexSetFromTable(table: TableSource, indexSet: NSIndexSet) -> NSIndexSet {
-        return indexSet.reduce(NSMutableIndexSet()) { $0.addIndex(sectionFromTable(table, section: $1)); return $0 }
+        let sectionOffset = sectionOffsetForTable(table)
+        return indexSet.reduce(NSMutableIndexSet()) { $0.addIndex($1 + sectionOffset); return $0 }
     }
     
     func indexPathsForTable(table: TableSource, indexPaths: [NSIndexPath]?) -> [NSIndexPath]? {
         guard let indexPaths = indexPaths else { return nil }
-        return indexPaths.filter { tableForSection($0.section) === table }.map { indexPathForTable(table, indexPath: $0) }
+        let sectionOffset = sectionOffsetForTable(table)
+        return indexPaths.filter {
+            (sectionOffset..<(sectionOffset + table.numberOfSections)).contains($0.section)
+        }.map {
+            NSIndexPath(forRow: $0.row, inSection: $0.section - sectionOffset)
+        }
     }
     
     func indexPathsFromTable(table: TableSource, indexPaths: [NSIndexPath]) -> [NSIndexPath] {
-        return indexPaths.map { indexPathFromTable(table, indexPath: $0) }
+        let sectionOffset = sectionOffsetForTable(table)
+        return indexPaths.map { NSIndexPath(forRow: $0.row, inSection: $0.section + sectionOffset) }
     }
     
     func optionalIndexPathForTable(table: TableSource, indexPath: NSIndexPath?) -> NSIndexPath? {
