@@ -27,7 +27,14 @@ extension MultiTable {
     }
     
     func tableForSection(section: Int) -> TableSource? {
-        return tableForIndex(section) { $0 + $1.numberOfSections }
+        var lastSection = 0
+        for table in tables {
+            lastSection += table.numberOfSections
+            if section < lastSection {
+                return table
+            }
+        }
+        return nil
     }
     
     func tableForSectionTitleAtIndex(index: Int) -> TableSource? {
@@ -44,8 +51,12 @@ extension MultiTable {
     }
     
     func sectionOffsetForTable(table: TableSource) -> Int {
-        if let i = tables.indexOf({ $0 === table }) {
-            return tables[0..<i].reduce(0) { $0 + $1.numberOfSections }
+        var sectionOffset = 0
+        for element in tables {
+            if table === element {
+                return sectionOffset
+            }
+            sectionOffset += element.numberOfSections
         }
         return 0
     }
