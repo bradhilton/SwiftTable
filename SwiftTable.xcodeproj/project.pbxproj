@@ -44,6 +44,9 @@
 		A2E832121C6EAB1600614A3D /* SectionInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E832111C6EAB1600614A3D /* SectionInterface.swift */; };
 		A2E832141C6EAC8000614A3D /* Bridge+Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E832131C6EAC8000614A3D /* Bridge+Interface.swift */; };
 		A2E8321A1C6F80DD00614A3D /* TableInterface+Implementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E832191C6F80DD00614A3D /* TableInterface+Implementation.swift */; };
+		A2F5CBDA1D88963D00A290AE /* MultiSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F5CBD91D88963D00A290AE /* MultiSection.swift */; };
+		A2F5CBDC1D8897E900A290AE /* MultiSection+Implementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F5CBDB1D8897E900A290AE /* MultiSection+Implementation.swift */; };
+		A2F5CBDE1D889E9A00A290AE /* MultiSection+Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F5CBDD1D889E9A00A290AE /* MultiSection+Interface.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +102,9 @@
 		A2E832111C6EAB1600614A3D /* SectionInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionInterface.swift; sourceTree = "<group>"; };
 		A2E832131C6EAC8000614A3D /* Bridge+Interface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bridge+Interface.swift"; sourceTree = "<group>"; };
 		A2E832191C6F80DD00614A3D /* TableInterface+Implementation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TableInterface+Implementation.swift"; sourceTree = "<group>"; };
+		A2F5CBD91D88963D00A290AE /* MultiSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiSection.swift; sourceTree = "<group>"; };
+		A2F5CBDB1D8897E900A290AE /* MultiSection+Implementation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MultiSection+Implementation.swift"; sourceTree = "<group>"; };
+		A2F5CBDD1D889E9A00A290AE /* MultiSection+Interface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MultiSection+Interface.swift"; sourceTree = "<group>"; };
 		E3B14854AC9BC61711B17179 /* Pods_SwiftTable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftTable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -280,6 +286,7 @@
 		A2E8321D1C6F83EC00614A3D /* Section */ = {
 			isa = PBXGroup;
 			children = (
+				A2F5CBD81D88962800A290AE /* MultiSection */,
 				A2CF91ED1C7274A300928EE7 /* RowSection */,
 				A2E8321E1C6F83FA00614A3D /* SectionInterface */,
 				A24469BF1C6FEF3200CF6A0F /* SectionSource */,
@@ -320,6 +327,16 @@
 				A24469B81C6FEE5200CF6A0F /* RowSource */,
 			);
 			path = Row;
+			sourceTree = "<group>";
+		};
+		A2F5CBD81D88962800A290AE /* MultiSection */ = {
+			isa = PBXGroup;
+			children = (
+				A2F5CBD91D88963D00A290AE /* MultiSection.swift */,
+				A2F5CBDB1D8897E900A290AE /* MultiSection+Implementation.swift */,
+				A2F5CBDD1D889E9A00A290AE /* MultiSection+Interface.swift */,
+			);
+			name = MultiSection;
 			sourceTree = "<group>";
 		};
 		A9DE28CF3FC602B8A7E69F78 /* Frameworks */ = {
@@ -503,6 +520,7 @@
 				A2A6E7511C6F95AC00968ACD /* TableSource+Implementation.swift in Sources */,
 				A237B5081C6F9841007B6E14 /* _Table.swift in Sources */,
 				A2E8320A1C6E9B2400614A3D /* Bridge.swift in Sources */,
+				A2F5CBDC1D8897E900A290AE /* MultiSection+Implementation.swift in Sources */,
 				A2AD46D71C74D31600A509A1 /* RowSource+SectionInterface.swift in Sources */,
 				A24469BD1C6FEE8900CF6A0F /* _Section.swift in Sources */,
 				A2CF91EF1C7274B000928EE7 /* RowSection.swift in Sources */,
@@ -515,11 +533,13 @@
 				A2CF91EC1C72534900928EE7 /* RowSource+Implementation.swift in Sources */,
 				A24469B71C6FEE4E00CF6A0F /* RowSource.swift in Sources */,
 				A24469CA1C721E9C00CF6A0F /* MultiTable+Interface.swift in Sources */,
+				A2F5CBDA1D88963D00A290AE /* MultiSection.swift in Sources */,
 				A2E8321A1C6F80DD00614A3D /* TableInterface+Implementation.swift in Sources */,
 				A2E8320C1C6EA40900614A3D /* Bridge+DataSource.swift in Sources */,
 				A2A6E74F1C6F955C00968ACD /* TableSource.swift in Sources */,
 				A2E832081C6E989900614A3D /* UITableView+Table.swift in Sources */,
 				A2978E551C7247C800BA1F77 /* NSIndexPath+Additions.swift in Sources */,
+				A2F5CBDE1D889E9A00A290AE /* MultiSection+Interface.swift in Sources */,
 				A24469C61C721CFF00CF6A0F /* MultiTable.swift in Sources */,
 				A24469C31C6FEF8700CF6A0F /* SectionSource+Implementation.swift in Sources */,
 				A2CF91F31C7277C100928EE7 /* RowSection+Interface.swift in Sources */,
