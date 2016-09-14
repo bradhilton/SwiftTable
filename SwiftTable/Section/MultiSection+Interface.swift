@@ -103,11 +103,11 @@ extension MultiSection {
     }
     
     public func deselectRow(row: Int, inSection section: SectionSource, animated: Bool) {
-        table?.deselectRow(rowFromSection(section, row: row), inSection: section, animated: animated)
+        table?.deselectRow(rowFromSection(section, row: row), inSection: self, animated: animated)
     }
     
     public func dequeueReusableCellWithIdentifier(identifier: String, forRow row: Int, inSection section: SectionSource) -> UITableViewCell {
-        return _table.dequeueReusableCellWithIdentifier(identifier, forRow: rowFromSection(section, row: row), inSection: section)
+        return _table.dequeueReusableCellWithIdentifier(identifier, forRow: rowFromSection(section, row: row), inSection: self)
     }
     
 }

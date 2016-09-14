@@ -48,11 +48,19 @@ extension MultiSection {
     }
     
     public func willSelectRow(row: Int) -> Int? {
-        return delegate(row) { $0.willSelectRow($1) }
+        guard let section = sectionForRow(row),
+            relativeRow = section.willSelectRow(rowForSection(section, row: row)) else {
+                return row
+        }
+        return rowFromSection(section, row: relativeRow)
     }
     
     public func willDeselectRow(row: Int) -> Int? {
-        return delegate(row) { $0.willDeselectRow($1) }
+        guard let section = sectionForRow(row),
+            relativeRow = section.willDeselectRow(rowForSection(section, row: row)) else {
+                return row
+        }
+        return rowFromSection(section, row: relativeRow)
     }
     
     public func didSelectRow(row: Int) {
