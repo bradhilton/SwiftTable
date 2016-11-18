@@ -10,146 +10,147 @@ extension SectionTable {
     
     // Delegate
     
-    public func willDisplayCell(cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    public func willDisplayCell(_ cell: UITableViewCell, forRowAtIndexPath indexPath: IndexPath) {
         sections[indexPath.section].willDisplayCell(cell, forRow: indexPath.row)
     }
     
-    public func willDisplayHeaderView(view: UIView, forSection section: Int) {
+    public func willDisplayHeaderView(_ view: UIView, forSection section: Int) {
         sections[section].willDisplayHeaderView(view)
     }
     
-    public func willDisplayFooterView(view: UIView, forSection section: Int) {
+    public func willDisplayFooterView(_ view: UIView, forSection section: Int) {
         sections[section].willDisplayFooterView(view)
     }
     
-    public func didEndDisplayingCell(cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    public func didEndDisplayingCell(_ cell: UITableViewCell, forRowAtIndexPath indexPath: IndexPath) {
         sections[indexPath.section].didEndDisplayingCell(cell, forRow: indexPath.row)
     }
     
-    public func didEndDisplayingHeaderView(view: UIView, forSection section: Int) {
+    public func didEndDisplayingHeaderView(_ view: UIView, forSection section: Int) {
         sections[section].didEndDisplayingHeaderView(view)
     }
     
-    public func didEndDisplayingFooterView(view: UIView, forSection section: Int) {
+    public func didEndDisplayingFooterView(_ view: UIView, forSection section: Int) {
         sections[section].didEndDisplayingFooterView(view)
     }
     
-    public func heightForRowAtIndexPath(indexPath: NSIndexPath) -> CGFloat {
+    public func heightForRowAtIndexPath(_ indexPath: IndexPath) -> CGFloat {
         return sections[indexPath.section].heightForRow(indexPath.row)
     }
     
-    public func heightForHeaderInSection(section: Int) -> CGFloat {
+    public func heightForHeaderInSection(_ section: Int) -> CGFloat {
         return sections[section].heightForHeader
     }
     
-    public func heightForFooterInSection(section: Int) -> CGFloat {
+    public func heightForFooterInSection(_ section: Int) -> CGFloat {
         return sections[section].heightForFooter
     }
     
-    public func estimatedHeightForRowAtIndexPath(indexPath: NSIndexPath) -> CGFloat {
+    public func estimatedHeightForRowAtIndexPath(_ indexPath: IndexPath) -> CGFloat {
         return sections[indexPath.section].estimatedHeightForRow(indexPath.row)
     }
     
-    public func estimatedHeightForHeaderInSection(section: Int) -> CGFloat {
+    public func estimatedHeightForHeaderInSection(_ section: Int) -> CGFloat {
         return sections[section].estimatedHeightForHeader
     }
     
-    public func estimatedHeightForFooterInSection(section: Int) -> CGFloat {
+    public func estimatedHeightForFooterInSection(_ section: Int) -> CGFloat {
         return sections[section].estimatedHeightForFooter
     }
     
-    public func viewForHeaderInSection(section: Int) -> UIView? {
+    public func viewForHeaderInSection(_ section: Int) -> UIView? {
         return sections[section].viewForHeader
     }
     
-    public func viewForFooterInSection(section: Int) -> UIView? {
+    public func viewForFooterInSection(_ section: Int) -> UIView? {
         return sections[section].viewForFooter
     }
     
-    public func accessoryButtonTappedForRowWithIndexPath(indexPath: NSIndexPath) {
+    public func accessoryButtonTappedForRowWithIndexPath(_ indexPath: IndexPath) {
         sections[indexPath.section].accessoryButtonTappedForRow(indexPath.row)
     }
     
-    public func shouldHighlightRowAtIndexPath(indexPath: NSIndexPath) -> Bool {
+    public func shouldHighlightRowAtIndexPath(_ indexPath: IndexPath) -> Bool {
         return sections[indexPath.section].shouldHighlightRow(indexPath.row)
     }
     
-    public func didHighlightRowAtIndexPath(indexPath: NSIndexPath) {
+    public func didHighlightRowAtIndexPath(_ indexPath: IndexPath) {
         return sections[indexPath.section].didHighlightRow(indexPath.row)
     }
     
-    public func didUnhighlightRowAtIndexPath(indexPath: NSIndexPath) {
+    public func didUnhighlightRowAtIndexPath(_ indexPath: IndexPath) {
         return sections[indexPath.section].didUnhighlightRow(indexPath.row)
     }
     
-    public func willSelectRowAtIndexPath(indexPath: NSIndexPath) -> NSIndexPath? {
-        return NSIndexPath(forRow: sections[indexPath.section].willSelectRow(indexPath.row), inSection: indexPath.section)
+    public func willSelectRowAtIndexPath(_ indexPath: IndexPath) -> IndexPath? {
+        return IndexPath(row: sections[indexPath.section].willSelectRow(indexPath.row), section: indexPath.section)
     }
     
-    public func willDeselectRowAtIndexPath(indexPath: NSIndexPath) -> NSIndexPath? {
-        return NSIndexPath(forRow: sections[indexPath.section].willDeselectRow(indexPath.row), inSection: indexPath.section)
+    public func willDeselectRowAtIndexPath(_ indexPath: IndexPath) -> IndexPath? {
+        return IndexPath(row: sections[indexPath.section].willDeselectRow(indexPath.row), section: indexPath.section)
     }
     
-    public func didSelectRowAtIndexPath(indexPath: NSIndexPath) {
+    public func didSelectRowAtIndexPath(_ indexPath: IndexPath) {
         sections[indexPath.section].didSelectRow(indexPath.row)
     }
     
-    public func didDeselectRowAtIndexPath(indexPath: NSIndexPath) {
+    public func didDeselectRowAtIndexPath(_ indexPath: IndexPath) {
         sections[indexPath.section].didDeselectRow(indexPath.row)
     }
     
-    public func editingStyleForRowAtIndexPath(indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+    public func editingStyleForRowAtIndexPath(_ indexPath: IndexPath) -> UITableViewCellEditingStyle {
         return sections[indexPath.section].editingStyleForRow(indexPath.row)
     }
     
-    public func titleForDeleteConfirmationButtonForRowAtIndexPath(indexPath: NSIndexPath) -> String? {
+    public func titleForDeleteConfirmationButtonForRowAtIndexPath(_ indexPath: IndexPath) -> String? {
         return sections[indexPath.section].titleForDeleteConfirmationButtonForRow(indexPath.row)
     }
     
-    public func editActionsForRowAtIndexPath(indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+    public func editActionsForRowAtIndexPath(_ indexPath: IndexPath) -> [UITableViewRowAction]? {
         return sections[indexPath.section].editActionsForRow(indexPath.row)
     }
     
-    public func shouldIndentWhileEditingRowAtIndexPath(indexPath: NSIndexPath) -> Bool {
+    public func shouldIndentWhileEditingRowAtIndexPath(_ indexPath: IndexPath) -> Bool {
         return sections[indexPath.section].shouldIndentWhileEditingRow(indexPath.row)
     }
     
-    public func willBeginEditingRowAtIndexPath(indexPath: NSIndexPath) {
+    public func willBeginEditingRowAtIndexPath(_ indexPath: IndexPath) {
         sections[indexPath.section].willBeginEditingRow(indexPath.row)
     }
     
-    public func didEndEditingRowAtIndexPath(indexPath: NSIndexPath) {
+    public func didEndEditingRowAtIndexPath(_ indexPath: IndexPath?) {
+        guard let indexPath = indexPath else { return }
         sections[indexPath.section].didEndEditingRow(indexPath.row)
     }
     
-    public func targetIndexPathForMoveFromRowAtIndexPath(sourceIndexPath: NSIndexPath, toProposedIndexPath proposedDestinationIndexPath: NSIndexPath) -> NSIndexPath {
+    public func targetIndexPathForMoveFromRowAtIndexPath(_ sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
         guard sourceIndexPath.section == proposedDestinationIndexPath.section else { return sourceIndexPath }
-        return NSIndexPath(forRow: sections[sourceIndexPath.section].targetRowForMoveFromRow(sourceIndexPath.row, toProposedRow: proposedDestinationIndexPath.row), inSection: sourceIndexPath.section)
+        return IndexPath(row: sections[sourceIndexPath.section].targetRowForMoveFromRow(sourceIndexPath.row, toProposedRow: proposedDestinationIndexPath.row), section: sourceIndexPath.section)
     }
     
-    public func indentationLevelForRowAtIndexPath(indexPath: NSIndexPath) -> Int {
+    public func indentationLevelForRowAtIndexPath(_ indexPath: IndexPath) -> Int {
         return sections[indexPath.section].indentationLevelForRow(indexPath.row)
     }
     
-    public func shouldShowMenuForRowAtIndexPath(indexPath: NSIndexPath) -> Bool {
+    public func shouldShowMenuForRowAtIndexPath(_ indexPath: IndexPath) -> Bool {
         return sections[indexPath.section].shouldShowMenuForRow(indexPath.row)
     }
     
-    public func canPerformAction(action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
+    public func canPerformAction(_ action: Selector, forRowAtIndexPath indexPath: IndexPath, withSender sender: AnyObject?) -> Bool {
         return sections[indexPath.section].canPerformAction(action, forRow: indexPath.row, withSender: sender)
     }
     
-    public func performAction(action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
+    public func performAction(_ action: Selector, forRowAtIndexPath indexPath: IndexPath, withSender sender: AnyObject?) {
         sections[indexPath.section].performAction(action, forRow: indexPath.row, withSender: sender)
     }
     
     // Data Source
     
-    public func numberOfRowsInSection(section: Int) -> Int {
+    public func numberOfRowsInSection(_ section: Int) -> Int {
         return sections[section].numberOfRows
     }
     
-    public func cellForRowAtIndexPath(indexPath: NSIndexPath) -> UITableViewCell {
+    public func cellForRowAtIndexPath(_ indexPath: IndexPath) -> UITableViewCell {
         return sections[indexPath.section].cellForRow(indexPath.row)
     }
     
@@ -157,19 +158,19 @@ extension SectionTable {
         return sections.count
     }
     
-    public func titleForHeaderInSection(section: Int) -> String? {
+    public func titleForHeaderInSection(_ section: Int) -> String? {
         return sections[section].titleForHeader
     }
     
-    public func titleForFooterInSection(section: Int) -> String? {
+    public func titleForFooterInSection(_ section: Int) -> String? {
         return sections[section].titleForFooter
     }
     
-    public func canEditRowAtIndexPath(indexPath: NSIndexPath) -> Bool {
+    public func canEditRowAtIndexPath(_ indexPath: IndexPath) -> Bool {
         return sections[indexPath.section].canEditRow(indexPath.row)
     }
     
-    public func canMoveRowAtIndexPath(indexPath: NSIndexPath) -> Bool {
+    public func canMoveRowAtIndexPath(_ indexPath: IndexPath) -> Bool {
         return sections[indexPath.section].canMoveRow(indexPath.row)
     }
     
@@ -178,15 +179,15 @@ extension SectionTable {
         return sectionIndexTitles.count > 0 ? sectionIndexTitles : nil
     }
     
-    public func sectionForSectionIndexTitle(title: String, atIndex index: Int) -> Int {
+    public func sectionForSectionIndexTitle(_ title: String, atIndex index: Int) -> Int {
         return (0..<sections.count).filter({ sections[$0].sectionIndexTitle != nil })[index]
     }
     
-    public func commitEditingStyle(editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    public func commitEditingStyle(_ editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: IndexPath) {
         sections[indexPath.section].commitEditingStyle(editingStyle, forRow: indexPath.row)
     }
     
-    public func moveRowAtIndexPath(sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
+    public func moveRowAtIndexPath(_ sourceIndexPath: IndexPath, toIndexPath destinationIndexPath: IndexPath) {
         guard sourceIndexPath.section == destinationIndexPath.section else { return }
         sections[sourceIndexPath.section].moveRow(sourceIndexPath.row, toRow: destinationIndexPath.row)
     }

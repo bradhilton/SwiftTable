@@ -10,52 +10,52 @@ public protocol TableSource : _Table {
     
     // Delegate
     
-    func willDisplayCell(cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath)
-    func willDisplayHeaderView(view: UIView, forSection section: Int)
-    func willDisplayFooterView(view: UIView, forSection section: Int)
-    func didEndDisplayingCell(cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath)
-    func didEndDisplayingHeaderView(view: UIView, forSection section: Int)
-    func didEndDisplayingFooterView(view: UIView, forSection section: Int)
-    func heightForRowAtIndexPath(indexPath: NSIndexPath) -> CGFloat
-    func heightForHeaderInSection(section: Int) -> CGFloat
-    func heightForFooterInSection(section: Int) -> CGFloat
-    func estimatedHeightForRowAtIndexPath(indexPath: NSIndexPath) -> CGFloat
-    func estimatedHeightForHeaderInSection(section: Int) -> CGFloat
-    func estimatedHeightForFooterInSection(section: Int) -> CGFloat
-    func viewForHeaderInSection(section: Int) -> UIView?
-    func viewForFooterInSection(section: Int) -> UIView?
-    func accessoryButtonTappedForRowWithIndexPath(indexPath: NSIndexPath)
-    func shouldHighlightRowAtIndexPath(indexPath: NSIndexPath) -> Bool
-    func didHighlightRowAtIndexPath(indexPath: NSIndexPath)
-    func didUnhighlightRowAtIndexPath(indexPath: NSIndexPath)
-    func willSelectRowAtIndexPath(indexPath: NSIndexPath) -> NSIndexPath?
-    func willDeselectRowAtIndexPath(indexPath: NSIndexPath) -> NSIndexPath?
-    func didSelectRowAtIndexPath(indexPath: NSIndexPath)
-    func didDeselectRowAtIndexPath(indexPath: NSIndexPath)
-    func editingStyleForRowAtIndexPath(indexPath: NSIndexPath) -> UITableViewCellEditingStyle
-    func titleForDeleteConfirmationButtonForRowAtIndexPath(indexPath: NSIndexPath) -> String?
-    func editActionsForRowAtIndexPath(indexPath: NSIndexPath) -> [UITableViewRowAction]?
-    func shouldIndentWhileEditingRowAtIndexPath(indexPath: NSIndexPath) -> Bool
-    func willBeginEditingRowAtIndexPath(indexPath: NSIndexPath)
-    func didEndEditingRowAtIndexPath(indexPath: NSIndexPath)
-    func targetIndexPathForMoveFromRowAtIndexPath(sourceIndexPath: NSIndexPath, toProposedIndexPath proposedDestinationIndexPath: NSIndexPath) -> NSIndexPath
-    func indentationLevelForRowAtIndexPath(indexPath: NSIndexPath) -> Int
-    func shouldShowMenuForRowAtIndexPath(indexPath: NSIndexPath) -> Bool
-    func canPerformAction(action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool
-    func performAction(action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?)
+    func willDisplayCell(_ cell: UITableViewCell, forRowAtIndexPath indexPath: IndexPath)
+    func willDisplayHeaderView(_ view: UIView, forSection section: Int)
+    func willDisplayFooterView(_ view: UIView, forSection section: Int)
+    func didEndDisplayingCell(_ cell: UITableViewCell, forRowAtIndexPath indexPath: IndexPath)
+    func didEndDisplayingHeaderView(_ view: UIView, forSection section: Int)
+    func didEndDisplayingFooterView(_ view: UIView, forSection section: Int)
+    func heightForRowAtIndexPath(_ indexPath: IndexPath) -> CGFloat
+    func heightForHeaderInSection(_ section: Int) -> CGFloat
+    func heightForFooterInSection(_ section: Int) -> CGFloat
+    func estimatedHeightForRowAtIndexPath(_ indexPath: IndexPath) -> CGFloat
+    func estimatedHeightForHeaderInSection(_ section: Int) -> CGFloat
+    func estimatedHeightForFooterInSection(_ section: Int) -> CGFloat
+    func viewForHeaderInSection(_ section: Int) -> UIView?
+    func viewForFooterInSection(_ section: Int) -> UIView?
+    func accessoryButtonTappedForRowWithIndexPath(_ indexPath: IndexPath)
+    func shouldHighlightRowAtIndexPath(_ indexPath: IndexPath) -> Bool
+    func didHighlightRowAtIndexPath(_ indexPath: IndexPath)
+    func didUnhighlightRowAtIndexPath(_ indexPath: IndexPath)
+    func willSelectRowAtIndexPath(_ indexPath: IndexPath) -> IndexPath?
+    func willDeselectRowAtIndexPath(_ indexPath: IndexPath) -> IndexPath?
+    func didSelectRowAtIndexPath(_ indexPath: IndexPath)
+    func didDeselectRowAtIndexPath(_ indexPath: IndexPath)
+    func editingStyleForRowAtIndexPath(_ indexPath: IndexPath) -> UITableViewCellEditingStyle
+    func titleForDeleteConfirmationButtonForRowAtIndexPath(_ indexPath: IndexPath) -> String?
+    func editActionsForRowAtIndexPath(_ indexPath: IndexPath) -> [UITableViewRowAction]?
+    func shouldIndentWhileEditingRowAtIndexPath(_ indexPath: IndexPath) -> Bool
+    func willBeginEditingRowAtIndexPath(_ indexPath: IndexPath)
+    func didEndEditingRowAtIndexPath(_ indexPath: IndexPath?)
+    func targetIndexPathForMoveFromRowAtIndexPath(_ sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath
+    func indentationLevelForRowAtIndexPath(_ indexPath: IndexPath) -> Int
+    func shouldShowMenuForRowAtIndexPath(_ indexPath: IndexPath) -> Bool
+    func canPerformAction(_ action: Selector, forRowAtIndexPath indexPath: IndexPath, withSender sender: Any?) -> Bool
+    func performAction(_ action: Selector, forRowAtIndexPath indexPath: IndexPath, withSender sender: Any?)
     
     // Data Source
     
-    func numberOfRowsInSection(section: Int) -> Int
-    func cellForRowAtIndexPath(indexPath: NSIndexPath) -> UITableViewCell
+    func numberOfRowsInSection(_ section: Int) -> Int
+    func cellForRowAtIndexPath(_ indexPath: IndexPath) -> UITableViewCell
     var numberOfSections: Int { get }
-    func titleForHeaderInSection(section: Int) -> String?
-    func titleForFooterInSection(section: Int) -> String?
-    func canEditRowAtIndexPath(indexPath: NSIndexPath) -> Bool
-    func canMoveRowAtIndexPath(indexPath: NSIndexPath) -> Bool
+    func titleForHeaderInSection(_ section: Int) -> String?
+    func titleForFooterInSection(_ section: Int) -> String?
+    func canEditRowAtIndexPath(_ indexPath: IndexPath) -> Bool
+    func canMoveRowAtIndexPath(_ indexPath: IndexPath) -> Bool
     var sectionIndexTitles: [String]? { get }
-    func sectionForSectionIndexTitle(title: String, atIndex index: Int) -> Int
-    func commitEditingStyle(editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
-    func moveRowAtIndexPath(sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath)
+    func sectionForSectionIndexTitle(_ title: String, atIndex index: Int) -> Int
+    func commitEditingStyle(_ editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: IndexPath)
+    func moveRowAtIndexPath(_ sourceIndexPath: IndexPath, toIndexPath destinationIndexPath: IndexPath)
     
 }

@@ -11,7 +11,7 @@ struct ObjectWrapper : Hashable {
     let object: AnyObject
     
     var hashValue: Int {
-        return unsafeAddressOf(object).hashValue
+        return Unmanaged.passUnretained(object).toOpaque().hashValue
     }
     
     init(_ object: AnyObject) {

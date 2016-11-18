@@ -10,103 +10,103 @@ import AssociatedValues
 
 extension MultiSection {
     
-    public func numberOfRowsInSection(section: SectionSource) -> Int {
+    public func numberOfRowsInSection(_ section: SectionSource) -> Int {
         return section.numberOfRows
     }
     
-    public func rectForSection(section: SectionSource) -> CGRect {
+    public func rectForSection(_ section: SectionSource) -> CGRect {
         return _table.rectForSection(self)
     }
     
-    public func rectForHeaderInSection(section: SectionSource) -> CGRect {
+    public func rectForHeaderInSection(_ section: SectionSource) -> CGRect {
         return _table.rectForHeaderInSection(section)
     }
     
-    public func rectForFooterInSection(section: SectionSource) -> CGRect {
+    public func rectForFooterInSection(_ section: SectionSource) -> CGRect {
         return _table.rectForFooterInSection(self)
     }
     
-    public func rectForRow(row: Int, inSection section: SectionSource) -> CGRect {
+    public func rectForRow(_ row: Int, inSection section: SectionSource) -> CGRect {
         return _table.rectForRow(rowFromSection(section, row: row), inSection: self)
     }
     
-    public func rowAtPoint(point: CGPoint, inSection section: SectionSource) -> Int? {
+    public func rowAtPoint(_ point: CGPoint, inSection section: SectionSource) -> Int? {
         return table?.rowAtPoint(point, inSection: self).flatMap { self.rowForSection(section, row: $0) }
     }
     
-    public func rowForCell(cell: UITableViewCell, inSection section: SectionSource) -> Int? {
+    public func rowForCell(_ cell: UITableViewCell, inSection section: SectionSource) -> Int? {
         return table?.rowForCell(cell, inSection: self).flatMap { self.rowForSection(section, row: $0) }
     }
     
-    public func rowsInRect(rect: CGRect, inSection section: SectionSource) -> [Int]? {
+    public func rowsInRect(_ rect: CGRect, inSection section: SectionSource) -> [Int]? {
         return table?.rowsInRect(rect, inSection: section)?.map { self.rowForSection(section, row: $0) }
     }
     
-    public func cellForRow(row: Int, inSection section: SectionSource) -> UITableViewCell? {
+    public func cellForRow(_ row: Int, inSection section: SectionSource) -> UITableViewCell? {
         return table?.cellForRow(rowForSection(section, row: row), inSection: self)
     }
     
-    public func visibleRowsInSection(section: SectionSource) -> [Int]? {
+    public func visibleRowsInSection(_ section: SectionSource) -> [Int]? {
         return table?.visibleRowsInSection(self)?.map { self.rowForSection(section, row: $0) }
     }
     
-    public func headerViewForSection(section: SectionSource) -> UITableViewHeaderFooterView? {
+    public func headerViewForSection(_ section: SectionSource) -> UITableViewHeaderFooterView? {
         return table?.headerViewForSection(self)
     }
     
-    public func footerViewForSection(section: SectionSource) -> UITableViewHeaderFooterView? {
+    public func footerViewForSection(_ section: SectionSource) -> UITableViewHeaderFooterView? {
         return table?.footerViewForSection(self)
     }
     
-    public func scrollToRow(row: Int, inSection section: SectionSource, atScrollPosition scrollPosition: UITableViewScrollPosition, animated: Bool) {
+    public func scrollToRow(_ row: Int, inSection section: SectionSource, atScrollPosition scrollPosition: UITableViewScrollPosition, animated: Bool) {
         table?.scrollToRow(rowFromSection(section, row: row), inSection: self, atScrollPosition: scrollPosition, animated: animated)
     }
     
-    public func insertSection(section: SectionSource, withRowAnimation animation: UITableViewRowAnimation) {
+    public func insertSection(_ section: SectionSource, withRowAnimation animation: UITableViewRowAnimation) {
         table?.insertRows(rowsFromSection(section), inSection: self, withRowAnimation: animation)
     }
     
-    public func deleteSection(section: SectionSource, withRowAnimation animation: UITableViewRowAnimation) {
+    public func deleteSection(_ section: SectionSource, withRowAnimation animation: UITableViewRowAnimation) {
         table?.deleteRows(rowsFromSection(section), inSection: self, withRowAnimation: animation)
     }
     
-    public func reloadSection(section: SectionSource, withRowAnimation animation: UITableViewRowAnimation) {
+    public func reloadSection(_ section: SectionSource, withRowAnimation animation: UITableViewRowAnimation) {
         table?.deleteRows(rowsFromSection(section), inSection: self, withRowAnimation: animation)
     }
     
-    public func insertRows(rows: [Int], inSection section: SectionSource, withRowAnimation animation: UITableViewRowAnimation) {
+    public func insertRows(_ rows: [Int], inSection section: SectionSource, withRowAnimation animation: UITableViewRowAnimation) {
         table?.insertRows(rowsFromSection(section, rows: rows), inSection: self, withRowAnimation: animation)
     }
     
-    public func deleteRows(rows: [Int], inSection section: SectionSource, withRowAnimation animation: UITableViewRowAnimation) {
+    public func deleteRows(_ rows: [Int], inSection section: SectionSource, withRowAnimation animation: UITableViewRowAnimation) {
         table?.deleteRows(rowsFromSection(section, rows: rows), inSection: self, withRowAnimation: animation)
     }
     
-    public func reloadRows(rows: [Int], inSection section: SectionSource, withRowAnimation animation: UITableViewRowAnimation) {
+    public func reloadRows(_ rows: [Int], inSection section: SectionSource, withRowAnimation animation: UITableViewRowAnimation) {
         table?.reloadRows(rowsFromSection(section, rows: rows), inSection: self, withRowAnimation: animation)
     }
     
-    public func moveRow(row: Int, toRow newRow: Int, inSection section: SectionSource) {
+    public func moveRow(_ row: Int, toRow newRow: Int, inSection section: SectionSource) {
         table?.moveRow(rowFromSection(section, row: row), toRow: rowFromSection(section, row: newRow), inSection: self)
     }
     
-    public func selectedRowInSection(section: SectionSource) -> Int? {
+    public func selectedRowInSection(_ section: SectionSource) -> Int? {
         return table?.selectedRowInSection(self).flatMap { rowForSection(section, row: $0) }
     }
     
-    public func selectedRowsInSection(section: SectionSource) -> [Int]? {
+    public func selectedRowsInSection(_ section: SectionSource) -> [Int]? {
         return table?.selectedRowsInSection(section)?.flatMap { rowForSection(section, row: $0) }
     }
     
-    public func selectRow(row: Int?, inSection section: SectionSource, animated: Bool, scrollPosition: UITableViewScrollPosition) {
+    public func selectRow(_ row: Int?, inSection section: SectionSource, animated: Bool, scrollPosition: UITableViewScrollPosition) {
         table?.selectRow(row.flatMap { self.rowFromSection(section, row: $0) }, inSection: self, animated: animated, scrollPosition: scrollPosition)
     }
     
-    public func deselectRow(row: Int, inSection section: SectionSource, animated: Bool) {
+    public func deselectRow(_ row: Int, inSection section: SectionSource, animated: Bool) {
         table?.deselectRow(rowFromSection(section, row: row), inSection: self, animated: animated)
     }
     
-    public func dequeueReusableCellWithIdentifier(identifier: String, forRow row: Int, inSection section: SectionSource) -> UITableViewCell {
+    public func dequeueReusableCellWithIdentifier(_ identifier: String, forRow row: Int, inSection section: SectionSource) -> UITableViewCell {
         return _table.dequeueReusableCellWithIdentifier(identifier, forRow: rowFromSection(section, row: row), inSection: self)
     }
     

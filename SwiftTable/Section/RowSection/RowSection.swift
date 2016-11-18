@@ -17,20 +17,20 @@ extension RowSection {
     
     public var rows: OrderedObjectSet<RowSource> {
         get {
-            return getAssociatedValueForProperty("rows", ofObject: self, withInitialValue: OrderedObjectSet())
+            return getAssociatedValue(key: "rows", object: self, initialValue: OrderedObjectSet())
         }
         set {
-            rows.subtract(newValue).forEach { $0.section = nil }
-            newValue.subtract(rows).forEach { $0.section = self }
-            setAssociatedValue(newValue, forProperty: "rows", ofObject: self)
+            rows.subtracting(newValue).forEach { $0.section = nil }
+            newValue.subtracting(rows).forEach { $0.section = self }
+            set(associatedValue: newValue, key: "rows", object: self)
         }
     }
     
-    func index(row: RowSource) -> Int? {
-        return rows.indexOf { $0 === row }
+    func index(_ row: RowSource) -> Int? {
+        return rows.index { $0 === row }
     }
     
-    func delegate<T>(row: RowSource, handler: (Int) -> T?) -> T? {
+    func delegate<T>(_ row: RowSource, handler: (Int) -> T?) -> T? {
         guard let index = index(row) else { return nil }
         return handler(index)
     }

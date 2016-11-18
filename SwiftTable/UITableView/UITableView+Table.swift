@@ -8,19 +8,19 @@
 
 import AssociatedValues
 
-func sectionHeightForStyle(style: UITableViewStyle, header: Bool) -> CGFloat {
-    return style == .Plain ? 24 : (header ? 40 : 30)
+func sectionHeightForStyle(_ style: UITableViewStyle, header: Bool) -> CGFloat {
+    return style == .plain ? 24 : (header ? 40 : 30)
 }
 
 extension UITableView {
     
     public weak var table: TableSource? {
         get {
-            guard let bridge: Bridge = getAssociatedValueForProperty("table", ofObject: self) else { return nil }
+            guard let bridge: Bridge = getAssociatedValue(key: "table", object: self) else { return nil }
             return bridge.table
         }
         set {
-            setAssociatedValue(Bridge(tableView: self, table: newValue), forProperty: "table", ofObject: self)
+            set(associatedValue: Bridge(tableView: self, table: newValue), key: "table", object: self)
         }
     }
     

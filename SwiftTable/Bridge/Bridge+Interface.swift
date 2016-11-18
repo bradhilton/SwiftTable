@@ -92,68 +92,68 @@ extension Bridge : ParentInterface {
         tableView?.reloadSectionIndexTitles()
     }
     
-    func numberOfSectionsInTable(table: TableSource) -> Int {
+    func numberOfSectionsInTable(_ table: TableSource) -> Int {
         return _tableView.numberOfSections
     }
     
-    func numberOfRowsInSection(section: Int, inTable table: TableSource) -> Int {
-        return _tableView.numberOfRowsInSection(section)
+    func numberOfRowsInSection(_ section: Int, inTable table: TableSource) -> Int {
+        return _tableView.numberOfRows(inSection: section)
     }
     
-    func rectForSection(section: Int, inTable table: TableSource) -> CGRect {
-        return _tableView.rectForSection(section)
+    func rectForSection(_ section: Int, inTable table: TableSource) -> CGRect {
+        return _tableView.rect(forSection: section)
     }
     
-    func rectForHeaderInSection(section: Int, inTable table: TableSource) -> CGRect {
-        return _tableView.rectForHeaderInSection(section)
+    func rectForHeaderInSection(_ section: Int, inTable table: TableSource) -> CGRect {
+        return _tableView.rectForHeader(inSection: section)
     }
     
-    func rectForFooterInSection(section: Int, inTable table: TableSource) -> CGRect {
-        return _tableView.rectForFooterInSection(section)
+    func rectForFooterInSection(_ section: Int, inTable table: TableSource) -> CGRect {
+        return _tableView.rectForFooter(inSection: section)
     }
     
-    func rectForRowAtIndexPath(indexPath: NSIndexPath, inTable table: TableSource) -> CGRect {
-        return _tableView.rectForRowAtIndexPath(indexPath)
+    func rectForRowAtIndexPath(_ indexPath: IndexPath, inTable table: TableSource) -> CGRect {
+        return _tableView.rectForRow(at: indexPath)
     }
     
-    func indexPathForRowAtPoint(point: CGPoint, inTable table: TableSource) -> NSIndexPath? {
-        return tableView?.indexPathForRowAtPoint(point)
+    func indexPathForRowAtPoint(_ point: CGPoint, inTable table: TableSource) -> IndexPath? {
+        return tableView?.indexPathForRow(at: point)
     }
     
-    func indexPathForCell(cell: UITableViewCell, inTable table: TableSource) -> NSIndexPath? {
-        return tableView?.indexPathForCell(cell)
+    func indexPathForCell(_ cell: UITableViewCell, inTable table: TableSource) -> IndexPath? {
+        return tableView?.indexPath(for: cell)
     }
     
-    func indexPathsForRowsInRect(rect: CGRect, inTable table: TableSource) -> [NSIndexPath]? {
-        return tableView?.indexPathsForRowsInRect(rect)
+    func indexPathsForRowsInRect(_ rect: CGRect, inTable table: TableSource) -> [IndexPath]? {
+        return tableView?.indexPathsForRows(in: rect)
     }
     
-    func cellForRowAtIndexPath(indexPath: NSIndexPath, inTable table: TableSource) -> UITableViewCell? {
-        return tableView?.cellForRowAtIndexPath(indexPath)
+    func cellForRowAtIndexPath(_ indexPath: IndexPath, inTable table: TableSource) -> UITableViewCell? {
+        return tableView?.cellForRow(at: indexPath)
     }
     
     var visibleCells: [UITableViewCell] {
         return _tableView.visibleCells
     }
     
-    func indexPathsForVisibleRowsInTable(table: TableSource) -> [NSIndexPath]? {
+    func indexPathsForVisibleRowsInTable(_ table: TableSource) -> [IndexPath]? {
         return tableView?.indexPathsForVisibleRows
     }
     
-    func headerViewForSection(section: Int, inTable table: TableSource) -> UITableViewHeaderFooterView? {
-        return tableView?.headerViewForSection(section)
+    func headerViewForSection(_ section: Int, inTable table: TableSource) -> UITableViewHeaderFooterView? {
+        return tableView?.headerView(forSection: section)
     }
     
-    func footerViewForSection(section: Int, inTable table: TableSource) -> UITableViewHeaderFooterView? {
-        return tableView?.footerViewForSection(section)
+    func footerViewForSection(_ section: Int, inTable table: TableSource) -> UITableViewHeaderFooterView? {
+        return tableView?.footerView(forSection: section)
     }
     
-    func scrollToRowAtIndexPath(indexPath: NSIndexPath, inTable table: TableSource, atScrollPosition scrollPosition: UITableViewScrollPosition, animated: Bool) {
-        tableView?.scrollToRowAtIndexPath(indexPath, atScrollPosition: scrollPosition, animated: animated)
+    func scrollToRowAtIndexPath(_ indexPath: IndexPath, inTable table: TableSource, atScrollPosition scrollPosition: UITableViewScrollPosition, animated: Bool) {
+        tableView?.scrollToRow(at: indexPath, at: scrollPosition, animated: animated)
     }
     
-    func scrollToNearestSelectedRowAtScrollPosition(scrollPosition: UITableViewScrollPosition, animated: Bool) {
-        tableView?.scrollToNearestSelectedRowAtScrollPosition(scrollPosition, animated: animated)
+    func scrollToNearestSelectedRowAtScrollPosition(_ scrollPosition: UITableViewScrollPosition, animated: Bool) {
+        tableView?.scrollToNearestSelectedRow(at: scrollPosition, animated: animated)
     }
     
     func beginUpdates() {
@@ -164,48 +164,48 @@ extension Bridge : ParentInterface {
         tableView?.endUpdates()
     }
     
-    func insertSections(sections: NSIndexSet, inTable table: TableSource, withRowAnimation animation: UITableViewRowAnimation) {
-        tableView?.insertSections(sections, withRowAnimation: animation)
+    func insertSections(_ sections: IndexSet, inTable table: TableSource, withRowAnimation animation: UITableViewRowAnimation) {
+        tableView?.insertSections(sections, with: animation)
     }
     
-    func deleteSections(sections: NSIndexSet, inTable table: TableSource, withRowAnimation animation: UITableViewRowAnimation) {
-        tableView?.deleteSections(sections, withRowAnimation: animation)
+    func deleteSections(_ sections: IndexSet, inTable table: TableSource, withRowAnimation animation: UITableViewRowAnimation) {
+        tableView?.deleteSections(sections, with: animation)
     }
     
-    func reloadSections(sections: NSIndexSet, inTable table: TableSource, withRowAnimation animation: UITableViewRowAnimation) {
-        tableView?.reloadSections(sections, withRowAnimation: animation)
+    func reloadSections(_ sections: IndexSet, inTable table: TableSource, withRowAnimation animation: UITableViewRowAnimation) {
+        tableView?.reloadSections(sections, with: animation)
     }
     
-    func moveSection(section: Int, toSection newSection: Int, inTable table: TableSource) {
+    func moveSection(_ section: Int, toSection newSection: Int, inTable table: TableSource) {
         tableView?.moveSection(section, toSection: newSection)
     }
     
-    func insertRowsAtIndexPaths(indexPaths: [NSIndexPath], inTable table: TableSource, withRowAnimation animation: UITableViewRowAnimation) {
-        tableView?.insertRowsAtIndexPaths(indexPaths, withRowAnimation: animation)
+    func insertRowsAtIndexPaths(_ indexPaths: [IndexPath], inTable table: TableSource, withRowAnimation animation: UITableViewRowAnimation) {
+        tableView?.insertRows(at: indexPaths, with: animation)
     }
     
-    func deleteRowsAtIndexPaths(indexPaths: [NSIndexPath], inTable table: TableSource, withRowAnimation animation: UITableViewRowAnimation) {
-        tableView?.deleteRowsAtIndexPaths(indexPaths, withRowAnimation: animation)
+    func deleteRowsAtIndexPaths(_ indexPaths: [IndexPath], inTable table: TableSource, withRowAnimation animation: UITableViewRowAnimation) {
+        tableView?.deleteRows(at: indexPaths, with: animation)
     }
     
-    func reloadRowsAtIndexPaths(indexPaths: [NSIndexPath], inTable table: TableSource, withRowAnimation animation: UITableViewRowAnimation) {
-        tableView?.reloadRowsAtIndexPaths(indexPaths, withRowAnimation: animation)
+    func reloadRowsAtIndexPaths(_ indexPaths: [IndexPath], inTable table: TableSource, withRowAnimation animation: UITableViewRowAnimation) {
+        tableView?.reloadRows(at: indexPaths, with: animation)
     }
     
-    func moveRowAtIndexPath(indexPath: NSIndexPath, toIndexPath newIndexPath: NSIndexPath, inTable table: TableSource) {
-        tableView?.moveRowAtIndexPath(indexPath, toIndexPath: newIndexPath)
+    func moveRowAtIndexPath(_ indexPath: IndexPath, toIndexPath newIndexPath: IndexPath, inTable table: TableSource) {
+        tableView?.moveRow(at: indexPath, to: newIndexPath)
     }
     
     var editing: Bool {
         get {
-            return _tableView.editing
+            return _tableView.isEditing
         }
         set {
-            tableView?.editing = newValue
+            tableView?.isEditing = newValue
         }
     }
     
-    func setEditing(editing: Bool, animated: Bool) {
+    func setEditing(_ editing: Bool, animated: Bool) {
         tableView?.setEditing(editing, animated: animated)
     }
     
@@ -245,20 +245,20 @@ extension Bridge : ParentInterface {
         }
     }
     
-    func indexPathForSelectedRowInTable(table: TableSource) -> NSIndexPath? {
+    func indexPathForSelectedRowInTable(_ table: TableSource) -> IndexPath? {
         return tableView?.indexPathForSelectedRow
     }
     
-    func indexPathsForSelectedRowsInTable(table: TableSource) -> [NSIndexPath]? {
+    func indexPathsForSelectedRowsInTable(_ table: TableSource) -> [IndexPath]? {
         return tableView?.indexPathsForSelectedRows
     }
     
-    func selectRowAtIndexPath(indexPath: NSIndexPath?, inTable table: TableSource, animated: Bool, scrollPosition: UITableViewScrollPosition) {
-        tableView?.selectRowAtIndexPath(indexPath, animated: animated, scrollPosition: scrollPosition)
+    func selectRowAtIndexPath(_ indexPath: IndexPath?, inTable table: TableSource, animated: Bool, scrollPosition: UITableViewScrollPosition) {
+        tableView?.selectRow(at: indexPath, animated: animated, scrollPosition: scrollPosition)
     }
     
-    func deselectRowAtIndexPath(indexPath: NSIndexPath, inTable table: TableSource, animated: Bool) {
-        tableView?.deselectRowAtIndexPath(indexPath, animated: animated)
+    func deselectRowAtIndexPath(_ indexPath: IndexPath, inTable table: TableSource, animated: Bool) {
+        tableView?.deselectRow(at: indexPath, animated: animated)
     }
     
     var sectionIndexMinimumDisplayRowCount: Int {
@@ -341,32 +341,32 @@ extension Bridge : ParentInterface {
         }
     }
     
-    func dequeueReusableCellWithIdentifier(identifier: String) -> UITableViewCell? {
-        return tableView?.dequeueReusableCellWithIdentifier(identifier)
+    func dequeueReusableCellWithIdentifier(_ identifier: String) -> UITableViewCell? {
+        return tableView?.dequeueReusableCell(withIdentifier: identifier)
     }
     
-    func dequeueReusableCellWithIdentifier(identifier: String, forIndexPath indexPath: NSIndexPath, inTable table: TableSource) -> UITableViewCell {
-        return _tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath)
+    func dequeueReusableCellWithIdentifier(_ identifier: String, forIndexPath indexPath: IndexPath, inTable table: TableSource) -> UITableViewCell {
+        return _tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
     }
     
-    func dequeueReusableHeaderFooterViewWithIdentifier(identifier: String) -> UITableViewHeaderFooterView? {
-        return tableView?.dequeueReusableHeaderFooterViewWithIdentifier(identifier)
+    func dequeueReusableHeaderFooterViewWithIdentifier(_ identifier: String) -> UITableViewHeaderFooterView? {
+        return tableView?.dequeueReusableHeaderFooterView(withIdentifier: identifier)
     }
     
-    func registerNib(nib: UINib?, forCellReuseIdentifier identifier: String) {
-        tableView?.registerNib(nib, forCellReuseIdentifier: identifier)
+    func registerNib(_ nib: UINib?, forCellReuseIdentifier identifier: String) {
+        tableView?.register(nib, forCellReuseIdentifier: identifier)
     }
     
-    func registerClass(cellClass: AnyClass?, forCellReuseIdentifier identifier: String) {
-        tableView?.registerClass(cellClass, forCellReuseIdentifier: identifier)
+    func registerClass(_ cellClass: AnyClass?, forCellReuseIdentifier identifier: String) {
+        tableView?.register(cellClass, forCellReuseIdentifier: identifier)
     }
     
-    func registerNib(nib: UINib?, forHeaderFooterViewReuseIdentifier identifier: String) {
-        tableView?.registerNib(nib, forHeaderFooterViewReuseIdentifier: identifier)
+    func registerNib(_ nib: UINib?, forHeaderFooterViewReuseIdentifier identifier: String) {
+        tableView?.register(nib, forHeaderFooterViewReuseIdentifier: identifier)
     }
     
-    func registerClass(aClass: AnyClass?, forHeaderFooterViewReuseIdentifier identifier: String) {
-        tableView?.registerClass(aClass, forHeaderFooterViewReuseIdentifier: identifier)
+    func registerClass(_ aClass: AnyClass?, forHeaderFooterViewReuseIdentifier identifier: String) {
+        tableView?.register(aClass, forHeaderFooterViewReuseIdentifier: identifier)
     }
 
     

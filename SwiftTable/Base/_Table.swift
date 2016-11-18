@@ -16,10 +16,10 @@ extension _Table {
     
     public var parent: ParentInterface? {
         get {
-            return getAssociatedValueForProperty("parent", ofObject: self)
+            return getAssociatedValue(key: "parent", object: self)
         }
         set {
-            setWeakAssociatedValue(newValue as? AnyObject, forProperty: "parent", ofObject: self)
+            set(weakAssociatedValue: newValue as AnyObject, key: "parent", object: self)
         }
     }
     

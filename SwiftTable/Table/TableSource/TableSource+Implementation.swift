@@ -10,117 +10,117 @@ extension TableSource {
     
     // Delegate
     
-    public func willDisplayCell(cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {}
-    public func willDisplayHeaderView(view: UIView, forSection section: Int) {}
-    public func willDisplayFooterView(view: UIView, forSection section: Int) {}
-    public func didEndDisplayingCell(cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {}
-    public func didEndDisplayingHeaderView(view: UIView, forSection section: Int) {}
-    public func didEndDisplayingFooterView(view: UIView, forSection section: Int) {}
+    public func willDisplayCell(_ cell: UITableViewCell, forRowAtIndexPath indexPath: IndexPath) {}
+    public func willDisplayHeaderView(_ view: UIView, forSection section: Int) {}
+    public func willDisplayFooterView(_ view: UIView, forSection section: Int) {}
+    public func didEndDisplayingCell(_ cell: UITableViewCell, forRowAtIndexPath indexPath: IndexPath) {}
+    public func didEndDisplayingHeaderView(_ view: UIView, forSection section: Int) {}
+    public func didEndDisplayingFooterView(_ view: UIView, forSection section: Int) {}
     
-    public func heightForRowAtIndexPath(indexPath: NSIndexPath) -> CGFloat {
+    public func heightForRowAtIndexPath(_ indexPath: IndexPath) -> CGFloat {
         return _parent.rowHeight
     }
     
-    public func heightForHeaderInSection(section: Int) -> CGFloat {
+    public func heightForHeaderInSection(_ section: Int) -> CGFloat {
         return defaultHeightForHeaderInSection(section)
     }
     
-    public func heightForFooterInSection(section: Int) -> CGFloat {
+    public func heightForFooterInSection(_ section: Int) -> CGFloat {
         return defaultHeightForFooterInSection(section)
     }
     
-    public func estimatedHeightForRowAtIndexPath(indexPath: NSIndexPath) -> CGFloat {
+    public func estimatedHeightForRowAtIndexPath(_ indexPath: IndexPath) -> CGFloat {
         return _parent.estimatedRowHeight
     }
     
-    public func estimatedHeightForHeaderInSection(section: Int) -> CGFloat {
+    public func estimatedHeightForHeaderInSection(_ section: Int) -> CGFloat {
         return defaultHeightForHeaderInSection(section)
     }
     
-    public func estimatedHeightForFooterInSection(section: Int) -> CGFloat {
+    public func estimatedHeightForFooterInSection(_ section: Int) -> CGFloat {
         return defaultHeightForFooterInSection(section)
     }
     
-    func defaultHeightForHeaderInSection(section: Int) -> CGFloat {
+    func defaultHeightForHeaderInSection(_ section: Int) -> CGFloat {
         return titleForHeaderInSection(section) != nil ? sectionHeightForStyle(_parent.style, header: true) : 0
     }
     
-    func defaultHeightForFooterInSection(section: Int) -> CGFloat {
+    func defaultHeightForFooterInSection(_ section: Int) -> CGFloat {
         return titleForFooterInSection(section) != nil ? sectionHeightForStyle(_parent.style, header: false) : 0
     }
     
-    public func viewForHeaderInSection(section: Int) -> UIView? {
+    public func viewForHeaderInSection(_ section: Int) -> UIView? {
         return nil
     }
     
-    public func viewForFooterInSection(section: Int) -> UIView? {
+    public func viewForFooterInSection(_ section: Int) -> UIView? {
         return nil
     }
     
-    public func accessoryButtonTappedForRowWithIndexPath(indexPath: NSIndexPath) {}
+    public func accessoryButtonTappedForRowWithIndexPath(_ indexPath: IndexPath) {}
     
-    public func shouldHighlightRowAtIndexPath(indexPath: NSIndexPath) -> Bool {
+    public func shouldHighlightRowAtIndexPath(_ indexPath: IndexPath) -> Bool {
         return true
     }
     
-    public func didHighlightRowAtIndexPath(indexPath: NSIndexPath) {}
-    public func didUnhighlightRowAtIndexPath(indexPath: NSIndexPath) {}
+    public func didHighlightRowAtIndexPath(_ indexPath: IndexPath) {}
+    public func didUnhighlightRowAtIndexPath(_ indexPath: IndexPath) {}
     
-    public func willSelectRowAtIndexPath(indexPath: NSIndexPath) -> NSIndexPath? {
+    public func willSelectRowAtIndexPath(_ indexPath: IndexPath) -> IndexPath? {
         return indexPath
     }
     
-    public func willDeselectRowAtIndexPath(indexPath: NSIndexPath) -> NSIndexPath? {
+    public func willDeselectRowAtIndexPath(_ indexPath: IndexPath) -> IndexPath? {
         return indexPath
     }
     
-    public func didSelectRowAtIndexPath(indexPath: NSIndexPath) {}
-    public func didDeselectRowAtIndexPath(indexPath: NSIndexPath) {}
+    public func didSelectRowAtIndexPath(_ indexPath: IndexPath) {}
+    public func didDeselectRowAtIndexPath(_ indexPath: IndexPath) {}
     
-    public func editingStyleForRowAtIndexPath(indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
-        return .None
+    public func editingStyleForRowAtIndexPath(_ indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return .none
     }
     
-    public func titleForDeleteConfirmationButtonForRowAtIndexPath(indexPath: NSIndexPath) -> String? {
+    public func titleForDeleteConfirmationButtonForRowAtIndexPath(_ indexPath: IndexPath) -> String? {
         return "Delete"
     }
     
-    public func editActionsForRowAtIndexPath(indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+    public func editActionsForRowAtIndexPath(_ indexPath: IndexPath) -> [UITableViewRowAction]? {
         return nil
     }
     
-    public func shouldIndentWhileEditingRowAtIndexPath(indexPath: NSIndexPath) -> Bool {
+    public func shouldIndentWhileEditingRowAtIndexPath(_ indexPath: IndexPath) -> Bool {
         return true
     }
     
-    public func willBeginEditingRowAtIndexPath(indexPath: NSIndexPath) {}
-    public func didEndEditingRowAtIndexPath(indexPath: NSIndexPath) {}
+    public func willBeginEditingRowAtIndexPath(_ indexPath: IndexPath) {}
+    public func didEndEditingRowAtIndexPath(_ indexPath: IndexPath?) {}
     
-    public func targetIndexPathForMoveFromRowAtIndexPath(sourceIndexPath: NSIndexPath, toProposedIndexPath proposedDestinationIndexPath: NSIndexPath) -> NSIndexPath {
+    public func targetIndexPathForMoveFromRowAtIndexPath(_ sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
         return proposedDestinationIndexPath
     }
     
-    public func indentationLevelForRowAtIndexPath(indexPath: NSIndexPath) -> Int {
+    public func indentationLevelForRowAtIndexPath(_ indexPath: IndexPath) -> Int {
         return 0
     }
     
-    public func shouldShowMenuForRowAtIndexPath(indexPath: NSIndexPath) -> Bool {
+    public func shouldShowMenuForRowAtIndexPath(_ indexPath: IndexPath) -> Bool {
         return false
     }
     
-    public func canPerformAction(action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
+    public func canPerformAction(_ action: Selector, forRowAtIndexPath indexPath: IndexPath, withSender sender: Any?) -> Bool {
         return false
     }
     
-    public func performAction(action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {}
+    public func performAction(_ action: Selector, forRowAtIndexPath indexPath: IndexPath, withSender sender: Any?) {}
     
     // Data Source
     
-    public func numberOfRowsInSection(section: Int) -> Int {
+    public func numberOfRowsInSection(_ section: Int) -> Int {
         return 0
     }
     
-    public func cellForRowAtIndexPath(indexPath: NSIndexPath) -> UITableViewCell {
+    public func cellForRowAtIndexPath(_ indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
     }
     
@@ -128,19 +128,19 @@ extension TableSource {
         return 1
     }
     
-    public func titleForHeaderInSection(section: Int) -> String? {
+    public func titleForHeaderInSection(_ section: Int) -> String? {
         return nil
     }
     
-    public func titleForFooterInSection(section: Int) -> String? {
+    public func titleForFooterInSection(_ section: Int) -> String? {
         return nil
     }
     
-    public func canEditRowAtIndexPath(indexPath: NSIndexPath) -> Bool {
+    public func canEditRowAtIndexPath(_ indexPath: IndexPath) -> Bool {
         return false
     }
     
-    public func canMoveRowAtIndexPath(indexPath: NSIndexPath) -> Bool {
+    public func canMoveRowAtIndexPath(_ indexPath: IndexPath) -> Bool {
         return false
     }
     
@@ -148,12 +148,12 @@ extension TableSource {
         return nil
     }
     
-    public func sectionForSectionIndexTitle(title: String, atIndex index: Int) -> Int {
+    public func sectionForSectionIndexTitle(_ title: String, atIndex index: Int) -> Int {
         return 0
     }
     
-    public func commitEditingStyle(editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {}
+    public func commitEditingStyle(_ editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: IndexPath) {}
     
-    public func moveRowAtIndexPath(sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {}
+    public func moveRowAtIndexPath(_ sourceIndexPath: IndexPath, toIndexPath destinationIndexPath: IndexPath) {}
     
 }

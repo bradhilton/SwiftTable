@@ -12,49 +12,49 @@ extension RowSource where Self : SectionSource, Self : SectionInterface {
     
     public var section: SectionInterface? {
         get {
-            guard let section: SectionInterface = getAssociatedValueForProperty("section", ofObject: self) else {
+            guard let section: SectionInterface = getAssociatedValue(key: "section", object: self) else {
                 return self
             }
             return section
         }
         set {
-            setWeakAssociatedValue(newValue as? AnyObject, forProperty: "section", ofObject: self)
+            set(weakAssociatedValue: newValue as AnyObject, key: "section", object: self)
         }
     }
     
-    public func rectForRow(row: RowSource) -> CGRect {
+    public func rectForRow(_ row: RowSource) -> CGRect {
         return _table.rectForRow(0, inSection: self)
     }
     
-    public func cellForRow(row: RowSource) -> UITableViewCell? {
+    public func cellForRow(_ row: RowSource) -> UITableViewCell? {
         return table?.cellForRow(0, inSection: self)
     }
     
-    public func scrollToRow(row: RowSource, atScrollPosition scrollPosition: UITableViewScrollPosition, animated: Bool) {
+    public func scrollToRow(_ row: RowSource, atScrollPosition scrollPosition: UITableViewScrollPosition, animated: Bool) {
         table?.scrollToRow(0, inSection: self, atScrollPosition: scrollPosition, animated: animated)
     }
     
-    public func insertRow(row: RowSource, withRowAnimation animation: UITableViewRowAnimation) {
+    public func insertRow(_ row: RowSource, withRowAnimation animation: UITableViewRowAnimation) {
         table?.insertRows([0], inSection: self, withRowAnimation: animation)
     }
     
-    public func deleteRow(row: RowSource, withRowAnimation animation: UITableViewRowAnimation) {
+    public func deleteRow(_ row: RowSource, withRowAnimation animation: UITableViewRowAnimation) {
         table?.deleteRows([0], inSection: self, withRowAnimation: animation)
     }
     
-    public func reloadRow(row: RowSource, withRowAnimation animation: UITableViewRowAnimation) {
+    public func reloadRow(_ row: RowSource, withRowAnimation animation: UITableViewRowAnimation) {
         table?.reloadRows([0], inSection: self, withRowAnimation: animation)
     }
     
-    public func selectRow(row: RowSource?, animated: Bool, scrollPosition: UITableViewScrollPosition) {
+    public func selectRow(_ row: RowSource?, animated: Bool, scrollPosition: UITableViewScrollPosition) {
         table?.selectRow(row != nil ? 0 : nil, inSection: self, animated: animated, scrollPosition: scrollPosition)
     }
     
-    public func deselectRow(row: RowSource, animated: Bool) {
+    public func deselectRow(_ row: RowSource, animated: Bool) {
         table?.deselectRow(0, inSection: self, animated: animated)
     }
     
-    public func dequeueReusableCellWithIdentifier(identifier: String, forRow row: RowSource) -> UITableViewCell {
+    public func dequeueReusableCellWithIdentifier(_ identifier: String, forRow row: RowSource) -> UITableViewCell {
         return _table.dequeueReusableCellWithIdentifier(identifier, forRow: 0, inSection: self)
     }
 

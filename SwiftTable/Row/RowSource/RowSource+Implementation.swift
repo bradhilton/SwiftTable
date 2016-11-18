@@ -10,15 +10,15 @@ extension RowSource {
     
     // Delegate
     
-    public func willDisplayCell(cell: UITableViewCell) {}
-    public func didEndDisplayingCell(cell: UITableViewCell) {}
+    public func willDisplayCell(_ cell: UITableViewCell) {}
+    public func didEndDisplayingCell(_ cell: UITableViewCell) {}
     
     public var height: CGFloat {
         return _section._table._parent.rowHeight
     }
     
     public var estimatedHeight: CGFloat {
-        return _section._table._parent.estimatedRowHeight ?? 0
+        return _section._table._parent.estimatedRowHeight
     }
 
     public func accessoryButtonTapped() {}
@@ -42,7 +42,7 @@ extension RowSource {
     public func didDeselect() {}
     
     public var editingStyle: UITableViewCellEditingStyle {
-        return .None
+        return .none
     }
     
     public var titleForDeleteConfirmationButton: String? {
@@ -68,11 +68,11 @@ extension RowSource {
         return false
     }
     
-    public func canPerformAction(action: Selector, withSender sender: AnyObject?) -> Bool {
+    public func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
         return false
     }
     
-    public func performAction(action: Selector, withSender sender: AnyObject?) {}
+    public func performAction(_ action: Selector, withSender sender: Any?) {}
 
     // Data Source
     
@@ -88,6 +88,6 @@ extension RowSource {
         return false
     }
     
-    public func commitEditingStyle(editingStyle: UITableViewCellEditingStyle) {}
+    public func commitEditingStyle(_ editingStyle: UITableViewCellEditingStyle) {}
     
 }

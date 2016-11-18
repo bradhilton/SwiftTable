@@ -21,10 +21,10 @@ extension _Row {
     
     public var section: SectionInterface? {
         get {
-            return getAssociatedValueForProperty("section", ofObject: self)
+            return getAssociatedValue(key: "section", object: self)
         }
         set {
-            setWeakAssociatedValue(newValue as? AnyObject, forProperty: "section", ofObject: self)
+            set(weakAssociatedValue: newValue as AnyObject, key: "section", object: self)
         }
     }
     

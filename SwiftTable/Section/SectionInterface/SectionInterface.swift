@@ -8,17 +8,17 @@
 
 public protocol SectionInterface : _Section {
     
-    func rectForRow(row: RowSource) -> CGRect
-    func cellForRow(row: RowSource) -> UITableViewCell?
-    func scrollToRow(row: RowSource, atScrollPosition scrollPosition: UITableViewScrollPosition, animated: Bool)
+    func rectForRow(_ row: RowSource) -> CGRect
+    func cellForRow(_ row: RowSource) -> UITableViewCell?
+    func scrollToRow(_ row: RowSource, atScrollPosition scrollPosition: UITableViewScrollPosition, animated: Bool)
     
-    func insertRow(row: RowSource, withRowAnimation animation: UITableViewRowAnimation)
-    func deleteRow(row: RowSource, withRowAnimation animation: UITableViewRowAnimation)
-    func reloadRow(row: RowSource, withRowAnimation animation: UITableViewRowAnimation)
+    func insertRow(_ row: RowSource, withRowAnimation animation: UITableViewRowAnimation)
+    func deleteRow(_ row: RowSource, withRowAnimation animation: UITableViewRowAnimation)
+    func reloadRow(_ row: RowSource, withRowAnimation animation: UITableViewRowAnimation)
     
-    func selectRow(row: RowSource?, animated: Bool, scrollPosition: UITableViewScrollPosition)
-    func deselectRow(row: RowSource, animated: Bool)
+    func selectRow(_ row: RowSource?, animated: Bool, scrollPosition: UITableViewScrollPosition)
+    func deselectRow(_ row: RowSource, animated: Bool)
     
-    func dequeueReusableCellWithIdentifier(identifier: String, forRow row: RowSource) -> UITableViewCell
+    func dequeueReusableCellWithIdentifier(_ identifier: String, forRow row: RowSource) -> UITableViewCell
     
 }

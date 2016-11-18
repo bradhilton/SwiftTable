@@ -21,10 +21,10 @@ extension _Section {
     
     public var table: TableInterface? {
         get {
-            return getAssociatedValueForProperty("table", ofObject: self)
+            return getAssociatedValue(key: "table", object: self)
         }
         set {
-            setWeakAssociatedValue(newValue as? AnyObject, forProperty: "table", ofObject: self)
+            set(weakAssociatedValue: newValue as AnyObject, key: "table", object: self)
         }
     }
     

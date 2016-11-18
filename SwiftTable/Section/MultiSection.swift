@@ -17,16 +17,16 @@ extension MultiSection {
     
     public var sections: OrderedObjectSet<SectionSource> {
         get {
-            return getAssociatedValueForProperty("sections", ofObject: self, withInitialValue: OrderedObjectSet())
+            return getAssociatedValue(key: "sections", object: self, initialValue: OrderedObjectSet())
         }
         set {
-            sections.subtract(newValue).forEach { $0.table = nil }
-            newValue.subtract(sections).forEach { $0.table = self }
-            setAssociatedValue(newValue, forProperty: "sections", ofObject: self)
+            sections.subtracting(newValue).forEach { $0.table = nil }
+            newValue.subtracting(sections).forEach { $0.table = self }
+            set(associatedValue: newValue, key: "sections", object: self)
         }
     }
     
-    func sectionForRow(row: Int) -> SectionSource? {
+    func sectionForRow(_ row: Int) -> SectionSource? {
         var lastRow = 0
         for section in sections {
             lastRow += section.numberOfRows
@@ -37,7 +37,7 @@ extension MultiSection {
         return nil
     }
     
-    private func rowOffsetForSection(section: SectionSource) -> Int {
+    fileprivate func rowOffsetForSection(_ section: SectionSource) -> Int {
         var rowOffset = 0
         for element in sections {
             if section === element {
@@ -48,21 +48,21 @@ extension MultiSection {
         return 0
     }
     
-    func rowsFromSection(section: SectionSource, rows: [Int]? = nil) -> [Int] {
+    func rowsFromSection(_ section: SectionSource, rows: [Int]? = nil) -> [Int] {
         let rows = rows ?? (0..<section.numberOfRows).map { $0 }
         let rowOffset = rowOffsetForSection(section)
         return rows.map { $0 + rowOffset }
     }
     
-    func rowForSection(section: SectionSource, row: Int) -> Int {
+    func rowForSection(_ section: SectionSource, row: Int) -> Int {
         return row - rowOffsetForSection(section)
     }
     
-    func rowFromSection(section: SectionSource, row: Int) -> Int {
+    func rowFromSection(_ section: SectionSource, row: Int) -> Int {
         return row + rowOffsetForSection(section)
     }
     
-    func delegate<T>(row: Int, handler: (SectionSource, Int) -> T?) -> T? {
+    func delegate<T>(_ row: Int, handler: (SectionSource, Int) -> T?) -> T? {
         guard let section = sectionForRow(row) else { return nil }
         return handler(section, rowForSection(section, row: row))
     }

@@ -12,14 +12,14 @@ extension SectionSource {
     
     // Delegate
     
-    public func willDisplayCell(cell: UITableViewCell, forRow row: Int) {}
-    public func willDisplayHeaderView(view: UIView) {}
-    public func willDisplayFooterView(view: UIView) {}
-    public func didEndDisplayingCell(cell: UITableViewCell, forRow row: Int) {}
-    public func didEndDisplayingHeaderView(view: UIView) {}
-    public func didEndDisplayingFooterView(view: UIView) {}
+    public func willDisplayCell(_ cell: UITableViewCell, forRow row: Int) {}
+    public func willDisplayHeaderView(_ view: UIView) {}
+    public func willDisplayFooterView(_ view: UIView) {}
+    public func didEndDisplayingCell(_ cell: UITableViewCell, forRow row: Int) {}
+    public func didEndDisplayingHeaderView(_ view: UIView) {}
+    public func didEndDisplayingFooterView(_ view: UIView) {}
     
-    public func heightForRow(row: Int) -> CGFloat {
+    public func heightForRow(_ row: Int) -> CGFloat {
         return _table._parent.rowHeight
     }
     
@@ -31,7 +31,7 @@ extension SectionSource {
         return defaultHeightForFooter
     }
     
-    public func estimatedHeightForRow(row: Int) -> CGFloat {
+    public func estimatedHeightForRow(_ row: Int) -> CGFloat {
         return _table._parent.estimatedRowHeight
     }
     
@@ -53,78 +53,78 @@ extension SectionSource {
     
     public var viewForHeader: UIView? {
         get {
-            return getAssociatedValueForProperty("viewForHeader", ofObject: self)
+            return getAssociatedValue(key: "viewForHeader", object: self)
         }
         set {
-            setAssociatedValue(newValue, forProperty: "viewForHeader", ofObject: self)
+            set(associatedValue: newValue, key: "viewForHeader", object: self)
         }
     }
     
     public var viewForFooter: UIView? {
         get {
-            return getAssociatedValueForProperty("viewForFooter", ofObject: self)
+            return getAssociatedValue(key: "viewForFooter", object: self)
         }
         set {
-            setAssociatedValue(newValue, forProperty: "viewForFooter", ofObject: self)
+            set(associatedValue: newValue, key: "viewForFooter", object: self)
         }
     }
     
-    public func accessoryButtonTappedForRow(row: Int) {}
+    public func accessoryButtonTappedForRow(_ row: Int) {}
     
-    public func shouldHighlightRow(row: Int) -> Bool {
+    public func shouldHighlightRow(_ row: Int) -> Bool {
         return true
     }
     
-    public func didHighlightRow(row: Int) {}
-    public func didUnhighlightRow(row: Int) {}
+    public func didHighlightRow(_ row: Int) {}
+    public func didUnhighlightRow(_ row: Int) {}
     
-    public func willSelectRow(row: Int) -> Int? {
+    public func willSelectRow(_ row: Int) -> Int? {
         return row
     }
     
-    public func willDeselectRow(row: Int) -> Int? {
+    public func willDeselectRow(_ row: Int) -> Int? {
         return row
     }
     
-    public func didSelectRow(row: Int) {}
-    public func didDeselectRow(row: Int) {}
+    public func didSelectRow(_ row: Int) {}
+    public func didDeselectRow(_ row: Int) {}
     
-    public func editingStyleForRow(row: Int) -> UITableViewCellEditingStyle {
-        return .None
+    public func editingStyleForRow(_ row: Int) -> UITableViewCellEditingStyle {
+        return .none
     }
-    public func titleForDeleteConfirmationButtonForRow(row: Int) -> String? {
+    public func titleForDeleteConfirmationButtonForRow(_ row: Int) -> String? {
         return "Delete"
     }
     
-    public func editActionsForRow(row: Int) -> [UITableViewRowAction]? {
+    public func editActionsForRow(_ row: Int) -> [UITableViewRowAction]? {
         return nil
     }
     
-    public func shouldIndentWhileEditingRow(row: Int) -> Bool {
+    public func shouldIndentWhileEditingRow(_ row: Int) -> Bool {
         return true
     }
     
-    public func willBeginEditingRow(row: Int) {}
+    public func willBeginEditingRow(_ row: Int) {}
     
-    public func didEndEditingRow(row: Int) {}
+    public func didEndEditingRow(_ row: Int?) {}
     
-    public func targetRowForMoveFromRow(sourceRow: Int, toProposedRow proposedDestinationRow: Int) -> Int {
+    public func targetRowForMoveFromRow(_ sourceRow: Int, toProposedRow proposedDestinationRow: Int) -> Int {
         return proposedDestinationRow
     }
     
-    public func indentationLevelForRow(row: Int) -> Int {
+    public func indentationLevelForRow(_ row: Int) -> Int {
         return 0
     }
     
-    public func shouldShowMenuForRow(row: Int) -> Bool {
+    public func shouldShowMenuForRow(_ row: Int) -> Bool {
         return false
     }
     
-    public func canPerformAction(action: Selector, forRow row: Int, withSender sender: AnyObject?) -> Bool {
+    public func canPerformAction(_ action: Selector, forRow row: Int, withSender sender: Any?) -> Bool {
         return false
     }
     
-    public func performAction(action: Selector, forRow row: Int, withSender sender: AnyObject?) {}
+    public func performAction(_ action: Selector, forRow row: Int, withSender sender: Any?) {}
     
     // Data Source
     
@@ -132,46 +132,46 @@ extension SectionSource {
         return 0
     }
     
-    public func cellForRow(row: Int) -> UITableViewCell {
+    public func cellForRow(_ row: Int) -> UITableViewCell {
         return UITableViewCell()
     }
     
     public var titleForHeader: String? {
         get {
-            return getAssociatedValueForProperty("titleForHeader", ofObject: self)
+            return getAssociatedValue(key: "titleForHeader", object: self)
         }
         set {
-            setAssociatedValue(newValue, forProperty: "titleForHeader", ofObject: self)
+            set(associatedValue: newValue, key: "titleForHeader", object: self)
         }
     }
     
     public var titleForFooter: String? {
         get {
-            return getAssociatedValueForProperty("titleForFooter", ofObject: self)
+            return getAssociatedValue(key: "titleForFooter", object: self)
         }
         set {
-            setAssociatedValue(newValue, forProperty: "titleForFooter", ofObject: self)
+            set(associatedValue: newValue, key: "titleForFooter", object: self)
         }
     }
     
-    public func canEditRow(row: Int) -> Bool {
+    public func canEditRow(_ row: Int) -> Bool {
         return false
     }
     
-    public func canMoveRow(row: Int) -> Bool {
+    public func canMoveRow(_ row: Int) -> Bool {
         return false
     }
     
     public var sectionIndexTitle: String? {
         get {
-            return getAssociatedValueForProperty("sectionIndexTitle", ofObject: self)
+            return getAssociatedValue(key: "sectionIndexTitle", object: self)
         }
         set {
-            setAssociatedValue(newValue, forProperty: "sectionIndexTitle", ofObject: self)
+            set(associatedValue: newValue, key: "sectionIndexTitle", object: self)
         }
     }
     
-    public func commitEditingStyle(editingStyle: UITableViewCellEditingStyle, forRow row: Int) {}
-    public func moveRow(sourceRow: Int, toRow destinationRow: Int) {}
+    public func commitEditingStyle(_ editingStyle: UITableViewCellEditingStyle, forRow row: Int) {}
+    public func moveRow(_ sourceRow: Int, toRow destinationRow: Int) {}
     
 }

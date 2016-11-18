@@ -8,11 +8,11 @@
 
 import Foundation
 
-extension NSIndexPath {
+extension IndexPath {
     
-    convenience init?(forRow row: Int?, inSection section: Int) {
+    init?(row: Int?, section: Int) {
         guard let row = row else { return nil }
-        self.init(forRow: row, inSection: section)
+        self.init(row: row, section: section)
     }
     
 }

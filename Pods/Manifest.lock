@@ -1,15 +1,15 @@
 PODS:
-  - AssociatedValues (1.0.3)
-  - OrderedObjectSet (1.0.0)
+  - AssociatedValues (3.0.0)
+  - OrderedObjectSet (3.0.0)
 
 DEPENDENCIES:
-  - AssociatedValues (~> 1.0.3)
-  - OrderedObjectSet (~> 1.0.0)
+  - AssociatedValues (~> 3.0.0)
+  - OrderedObjectSet (~> 3.0.0)
 
 SPEC CHECKSUMS:
-  AssociatedValues: 749e05b3df45f80c0ad99c6b15df3a3d53906c9e
-  OrderedObjectSet: ff5af08b75ab1afac96cb1b4d0e0a8994a4e5b48
+  AssociatedValues: 5c29f5c0bb2672cf9ef0394bcbe3ce28b9fa0c2a
+  OrderedObjectSet: b6907ba8705510f6b94ed1a1adc434bb74f6c7fc
 
-PODFILE CHECKSUM: c511571363ef4bea39dd61bf8129ecbb5ccb5611
+PODFILE CHECKSUM: 53fb719d86df22c1a21eb0a60f15dcdb84caf2ac
 
-COCOAPODS: 1.0.0.beta.3
+COCOAPODS: 1.1.1

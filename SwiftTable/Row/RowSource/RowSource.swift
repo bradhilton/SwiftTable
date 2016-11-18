@@ -10,8 +10,8 @@ public protocol RowSource : _Row {
     
     // Delegate
     
-    func willDisplayCell(cell: UITableViewCell)
-    func didEndDisplayingCell(cell: UITableViewCell)
+    func willDisplayCell(_ cell: UITableViewCell)
+    func didEndDisplayingCell(_ cell: UITableViewCell)
     var height: CGFloat { get }
     var estimatedHeight: CGFloat { get }
     func accessoryButtonTapped()
@@ -30,15 +30,15 @@ public protocol RowSource : _Row {
     func didEndEditing()
     var indentationLevel: Int { get }
     var shouldShowMenu: Bool { get }
-    func canPerformAction(action: Selector, withSender sender: AnyObject?) -> Bool
-    func performAction(action: Selector, withSender sender: AnyObject?)
+    func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool
+    func performAction(_ action: Selector, withSender sender: Any?)
     
     // Data Source
     
     var cell: UITableViewCell { get }
     var canEdit: Bool { get }
     var canMove: Bool { get }
-    func commitEditingStyle(editingStyle: UITableViewCellEditingStyle)
+    func commitEditingStyle(_ editingStyle: UITableViewCellEditingStyle)
     
 }
 

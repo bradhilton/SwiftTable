@@ -47,6 +47,7 @@
 		A2F5CBDA1D88963D00A290AE /* MultiSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F5CBD91D88963D00A290AE /* MultiSection.swift */; };
 		A2F5CBDC1D8897E900A290AE /* MultiSection+Implementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F5CBDB1D8897E900A290AE /* MultiSection+Implementation.swift */; };
 		A2F5CBDE1D889E9A00A290AE /* MultiSection+Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F5CBDD1D889E9A00A290AE /* MultiSection+Interface.swift */; };
+		A9BB3A5DE18091AFA111CBDE /* Pods_SwiftTable_SwiftTableTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7821C2BBECFF90D103BFEA4D /* Pods_SwiftTable_SwiftTableTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +63,10 @@
 /* Begin PBXFileReference section */
 		1AFCDBC35AD08D29DA36E185 /* Pods-SwiftTable.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftTable.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftTable/Pods-SwiftTable.debug.xcconfig"; sourceTree = "<group>"; };
 		202D9A7672A894236C5432FC /* Pods-SwiftTable.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftTable.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftTable/Pods-SwiftTable.release.xcconfig"; sourceTree = "<group>"; };
+		7821C2BBECFF90D103BFEA4D /* Pods_SwiftTable_SwiftTableTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftTable_SwiftTableTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C82CF63D6BD6103D5C050A5 /* Pods-SwiftTable-SwiftTableTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftTable-SwiftTableTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftTable-SwiftTableTests/Pods-SwiftTable-SwiftTableTests.release.xcconfig"; sourceTree = "<group>"; };
 		95D35AC7E281463D06911B54 /* libPods-SwiftTableTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SwiftTableTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A17BEF78489A99E4FE9A082B /* Pods-SwiftTable-SwiftTableTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftTable-SwiftTableTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftTable-SwiftTableTests/Pods-SwiftTable-SwiftTableTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A237B5071C6F9841007B6E14 /* _Table.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _Table.swift; sourceTree = "<group>"; };
 		A237B50A1C6F9D37007B6E14 /* SwiftTable.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SwiftTable.podspec; sourceTree = "<group>"; };
 		A24469B61C6FEE4E00CF6A0F /* RowSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowSource.swift; sourceTree = "<group>"; };
@@ -122,6 +126,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2C94E8C1C7660DC0043535F /* SwiftTable.framework in Frameworks */,
+				A9BB3A5DE18091AFA111CBDE /* Pods_SwiftTable_SwiftTableTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +349,7 @@
 			children = (
 				95D35AC7E281463D06911B54 /* libPods-SwiftTableTests.a */,
 				E3B14854AC9BC61711B17179 /* Pods_SwiftTable.framework */,
+				7821C2BBECFF90D103BFEA4D /* Pods_SwiftTable_SwiftTableTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -353,6 +359,8 @@
 			children = (
 				1AFCDBC35AD08D29DA36E185 /* Pods-SwiftTable.debug.xcconfig */,
 				202D9A7672A894236C5432FC /* Pods-SwiftTable.release.xcconfig */,
+				A17BEF78489A99E4FE9A082B /* Pods-SwiftTable-SwiftTableTests.debug.xcconfig */,
+				8C82CF63D6BD6103D5C050A5 /* Pods-SwiftTable-SwiftTableTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -375,9 +383,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A2C94E8F1C7660DC0043535F /* Build configuration list for PBXNativeTarget "SwiftTableTests" */;
 			buildPhases = (
+				791D19219EBBDE004EA8E2D1 /* [CP] Check Pods Manifest.lock */,
 				A2C94E831C7660DC0043535F /* Sources */,
 				A2C94E841C7660DC0043535F /* Frameworks */,
 				A2C94E851C7660DC0043535F /* Resources */,
+				DEB2E8EC9CE4573E3FBD63B5 /* [CP] Embed Pods Frameworks */,
+				61AA7DB464D2A09FBA27D95D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -393,12 +404,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A2E831F41C6E92DC00614A3D /* Build configuration list for PBXNativeTarget "SwiftTable" */;
 			buildPhases = (
-				EB3EE5DF5D8B5DE9519E6DD2 /* Check Pods Manifest.lock */,
+				EB3EE5DF5D8B5DE9519E6DD2 /* [CP] Check Pods Manifest.lock */,
 				A2E831E71C6E92DC00614A3D /* Sources */,
 				A2E831E91C6E92DC00614A3D /* Headers */,
 				A2E831EA1C6E92DC00614A3D /* Resources */,
 				7159C61C0D64F1B53F671433 /* Frameworks */,
-				C25995346E230FBBD5BDED10 /* Copy Pods Resources */,
+				C25995346E230FBBD5BDED10 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -421,9 +432,11 @@
 				TargetAttributes = {
 					A2C94E861C7660DC0043535F = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0810;
 					};
 					A2E831EB1C6E92DC00614A3D = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0810;
 					};
 				};
 			};
@@ -464,14 +477,44 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		C25995346E230FBBD5BDED10 /* Copy Pods Resources */ = {
+		61AA7DB464D2A09FBA27D95D /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftTable-SwiftTableTests/Pods-SwiftTable-SwiftTableTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		791D19219EBBDE004EA8E2D1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C25995346E230FBBD5BDED10 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -479,19 +522,34 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftTable/Pods-SwiftTable-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EB3EE5DF5D8B5DE9519E6DD2 /* Check Pods Manifest.lock */ = {
+		DEB2E8EC9CE4573E3FBD63B5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftTable-SwiftTableTests/Pods-SwiftTable-SwiftTableTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EB3EE5DF5D8B5DE9519E6DD2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -560,21 +618,25 @@
 /* Begin XCBuildConfiguration section */
 		A2C94E901C7660DC0043535F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A17BEF78489A99E4FE9A082B /* Pods-SwiftTable-SwiftTableTests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = SwiftTableTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bradhilton.SwiftTableTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		A2C94E911C7660DC0043535F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C82CF63D6BD6103D5C050A5 /* Pods-SwiftTable-SwiftTableTests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = SwiftTableTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bradhilton.SwiftTableTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -684,6 +746,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -703,6 +766,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.bradhilton.SwiftTable;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

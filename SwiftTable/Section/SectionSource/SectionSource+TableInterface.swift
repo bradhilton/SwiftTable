@@ -12,114 +12,114 @@ extension SectionSource where Self : TableSource, Self : TableInterface {
     
     public var table: TableInterface? {
         get {
-            guard let table: TableInterface = getAssociatedValueForProperty("table", ofObject: self) else {
+            guard let table: TableInterface = getAssociatedValue(key: "table", object: self) else {
                 return self
             }
             return table
         }
         set {
-            setWeakAssociatedValue(newValue as? AnyObject, forProperty: "table", ofObject: self)
+            set(weakAssociatedValue: newValue as AnyObject, key: "table", object: self)
         }
     }
     
-    public func numberOfRowsInSection(section: SectionSource) -> Int {
+    public func numberOfRowsInSection(_ section: SectionSource) -> Int {
         return section.numberOfRows
     }
     
-    public func rectForSection(section: SectionSource) -> CGRect {
+    public func rectForSection(_ section: SectionSource) -> CGRect {
         return _parent.rectForSection(0, inTable: self)
     }
     
-    public func rectForHeaderInSection(section: SectionSource) -> CGRect {
+    public func rectForHeaderInSection(_ section: SectionSource) -> CGRect {
         return _parent.rectForHeaderInSection(0, inTable: self)
     }
     
-    public func rectForFooterInSection(section: SectionSource) -> CGRect {
+    public func rectForFooterInSection(_ section: SectionSource) -> CGRect {
         return _parent.rectForFooterInSection(0, inTable: self)
     }
     
-    public func rectForRow(row: Int, inSection section: SectionSource) -> CGRect {
-        return _parent.rectForRowAtIndexPath(NSIndexPath(forRow: row, inSection: 0), inTable: self)
+    public func rectForRow(_ row: Int, inSection section: SectionSource) -> CGRect {
+        return _parent.rectForRowAtIndexPath(IndexPath(row: row, section: 0), inTable: self)
     }
     
-    public func rowAtPoint(point: CGPoint, inSection section: SectionSource) -> Int? {
+    public func rowAtPoint(_ point: CGPoint, inSection section: SectionSource) -> Int? {
         return parent?.indexPathForRowAtPoint(point, inTable: self)?.row
     }
     
-    public func rowForCell(cell: UITableViewCell, inSection section: SectionSource) -> Int? {
+    public func rowForCell(_ cell: UITableViewCell, inSection section: SectionSource) -> Int? {
         return parent?.indexPathForCell(cell, inTable: self)?.row
     }
     
-    public func rowsInRect(rect: CGRect, inSection section: SectionSource) -> [Int]? {
+    public func rowsInRect(_ rect: CGRect, inSection section: SectionSource) -> [Int]? {
         return parent?.indexPathsForRowsInRect(rect, inTable: self)?.map { $0.row }
     }
     
-    public func cellForRow(row: Int, inSection section: SectionSource) -> UITableViewCell? {
-        return parent?.cellForRowAtIndexPath(NSIndexPath(forRow: row, inSection: 0), inTable: self)
+    public func cellForRow(_ row: Int, inSection section: SectionSource) -> UITableViewCell? {
+        return parent?.cellForRowAtIndexPath(IndexPath(row: row, section: 0), inTable: self)
     }
     
-    public func visibleRowsInSection(section: SectionSource) -> [Int]? {
+    public func visibleRowsInSection(_ section: SectionSource) -> [Int]? {
         return parent?.indexPathsForVisibleRowsInTable(self)?.map { $0.row }
     }
     
-    public func headerViewForSection(section: SectionSource) -> UITableViewHeaderFooterView? {
+    public func headerViewForSection(_ section: SectionSource) -> UITableViewHeaderFooterView? {
         return parent?.headerViewForSection(0, inTable: self)
     }
     
-    public func footerViewForSection(section: SectionSource) -> UITableViewHeaderFooterView? {
+    public func footerViewForSection(_ section: SectionSource) -> UITableViewHeaderFooterView? {
         return parent?.footerViewForSection(0, inTable: self)
     }
     
-    public func scrollToRow(row: Int, inSection section: SectionSource, atScrollPosition scrollPosition: UITableViewScrollPosition, animated: Bool) {
-        parent?.scrollToRowAtIndexPath(NSIndexPath(forRow: row, inSection: 0), inTable: self, atScrollPosition: scrollPosition, animated: animated)
+    public func scrollToRow(_ row: Int, inSection section: SectionSource, atScrollPosition scrollPosition: UITableViewScrollPosition, animated: Bool) {
+        parent?.scrollToRowAtIndexPath(IndexPath(row: row, section: 0), inTable: self, atScrollPosition: scrollPosition, animated: animated)
     }
     
-    public func insertSection(section: SectionSource, withRowAnimation animation: UITableViewRowAnimation) {
-        parent?.insertSections(NSIndexSet(index: 0), inTable: self, withRowAnimation: animation)
+    public func insertSection(_ section: SectionSource, withRowAnimation animation: UITableViewRowAnimation) {
+        parent?.insertSections(IndexSet(integer: 0), inTable: self, withRowAnimation: animation)
     }
     
-    public func deleteSection(section: SectionSource, withRowAnimation animation: UITableViewRowAnimation) {
-        parent?.deleteSections(NSIndexSet(index: 0), inTable: self, withRowAnimation: animation)
+    public func deleteSection(_ section: SectionSource, withRowAnimation animation: UITableViewRowAnimation) {
+        parent?.deleteSections(IndexSet(integer: 0), inTable: self, withRowAnimation: animation)
     }
     
-    public func reloadSection(section: SectionSource, withRowAnimation animation: UITableViewRowAnimation) {
-        parent?.reloadSections(NSIndexSet(index: 0), inTable: self, withRowAnimation: animation)
+    public func reloadSection(_ section: SectionSource, withRowAnimation animation: UITableViewRowAnimation) {
+        parent?.reloadSections(IndexSet(integer: 0), inTable: self, withRowAnimation: animation)
     }
     
-    public func insertRows(rows: [Int], inSection section: SectionSource, withRowAnimation animation: UITableViewRowAnimation) {
-        parent?.insertRowsAtIndexPaths(rows.map { NSIndexPath(forRow: $0, inSection: 0) }, inTable: self, withRowAnimation: animation)
+    public func insertRows(_ rows: [Int], inSection section: SectionSource, withRowAnimation animation: UITableViewRowAnimation) {
+        parent?.insertRowsAtIndexPaths(rows.map { IndexPath(row: $0, section: 0) }, inTable: self, withRowAnimation: animation)
     }
     
-    public func deleteRows(rows: [Int], inSection section: SectionSource, withRowAnimation animation: UITableViewRowAnimation) {
-        parent?.deleteRowsAtIndexPaths(rows.map { NSIndexPath(forRow: $0, inSection: 0) }, inTable: self, withRowAnimation: animation)
+    public func deleteRows(_ rows: [Int], inSection section: SectionSource, withRowAnimation animation: UITableViewRowAnimation) {
+        parent?.deleteRowsAtIndexPaths(rows.map { IndexPath(row: $0, section: 0) }, inTable: self, withRowAnimation: animation)
     }
     
-    public func reloadRows(rows: [Int], inSection section: SectionSource, withRowAnimation animation: UITableViewRowAnimation) {
-        parent?.reloadRowsAtIndexPaths(rows.map { NSIndexPath(forRow: $0, inSection: 0) }, inTable: self, withRowAnimation: animation)
+    public func reloadRows(_ rows: [Int], inSection section: SectionSource, withRowAnimation animation: UITableViewRowAnimation) {
+        parent?.reloadRowsAtIndexPaths(rows.map { IndexPath(row: $0, section: 0) }, inTable: self, withRowAnimation: animation)
     }
     
-    public func moveRow(row: Int, toRow newRow: Int, inSection section: SectionSource) {
-        parent?.moveRowAtIndexPath(NSIndexPath(forRow: row, inSection: 0), toIndexPath: NSIndexPath(forRow: newRow, inSection: 0), inTable: self)
+    public func moveRow(_ row: Int, toRow newRow: Int, inSection section: SectionSource) {
+        parent?.moveRowAtIndexPath(IndexPath(row: row, section: 0), toIndexPath: IndexPath(row: newRow, section: 0), inTable: self)
     }
     
-    public func selectedRowInSection(section: SectionSource) -> Int? {
+    public func selectedRowInSection(_ section: SectionSource) -> Int? {
         return parent?.indexPathForSelectedRowInTable(self)?.row
     }
     
-    public func selectedRowsInSection(section: SectionSource) -> [Int]? {
+    public func selectedRowsInSection(_ section: SectionSource) -> [Int]? {
         return parent?.indexPathsForSelectedRowsInTable(self)?.map { $0.row }
     }
     
-    public func selectRow(row: Int?, inSection section: SectionSource, animated: Bool, scrollPosition: UITableViewScrollPosition) {
-        parent?.selectRowAtIndexPath(NSIndexPath(forRow: row, inSection: 0), inTable: self, animated: animated, scrollPosition: scrollPosition)
+    public func selectRow(_ row: Int?, inSection section: SectionSource, animated: Bool, scrollPosition: UITableViewScrollPosition) {
+        parent?.selectRowAtIndexPath(IndexPath(row: row, section: 0), inTable: self, animated: animated, scrollPosition: scrollPosition)
     }
     
-    public func deselectRow(row: Int, inSection section: SectionSource, animated: Bool) {
-        parent?.deselectRowAtIndexPath(NSIndexPath(forRow: row, inSection: 0), inTable: self, animated: animated)
+    public func deselectRow(_ row: Int, inSection section: SectionSource, animated: Bool) {
+        parent?.deselectRowAtIndexPath(IndexPath(row: row, section: 0), inTable: self, animated: animated)
     }
     
-    public func dequeueReusableCellWithIdentifier(identifier: String, forRow row: Int, inSection section: SectionSource) -> UITableViewCell {
-        return _parent.dequeueReusableCellWithIdentifier(identifier, forIndexPath: NSIndexPath(forRow: row, inSection: 0), inTable: self)
+    public func dequeueReusableCellWithIdentifier(_ identifier: String, forRow row: Int, inSection section: SectionSource) -> UITableViewCell {
+        return _parent.dequeueReusableCellWithIdentifier(identifier, forIndexPath: IndexPath(row: row, section: 0), inTable: self)
     }
     
 }

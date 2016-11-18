@@ -10,83 +10,83 @@ extension RowSource where Self : SectionSource {
     
     // Delegate
     
-    public func willDisplayCell(cell: UITableViewCell, forRow row: Int) {
+    public func willDisplayCell(_ cell: UITableViewCell, forRow row: Int) {
         willDisplayCell(cell)
     }
     
-    public func didEndDisplayingCell(cell: UITableViewCell, forRow row: Int) {
+    public func didEndDisplayingCell(_ cell: UITableViewCell, forRow row: Int) {
         didEndDisplayingCell(cell)
     }
     
-    public func heightForRow(row: Int) -> CGFloat {
+    public func heightForRow(_ row: Int) -> CGFloat {
         return height
     }
     
-    public func estimatedHeightForRow(row: Int) -> CGFloat {
+    public func estimatedHeightForRow(_ row: Int) -> CGFloat {
         return estimatedHeight
     }
     
-    public func accessoryButtonTappedForRow(row: Int) {
+    public func accessoryButtonTappedForRow(_ row: Int) {
         accessoryButtonTapped()
     }
     
-    public func shouldHighlightRow(row: Int) -> Bool {
+    public func shouldHighlightRow(_ row: Int) -> Bool {
         return shouldHighlight
     }
     
-    public func willSelectRow(row: Int) -> Int? {
+    public func willSelectRow(_ row: Int) -> Int? {
         return willSelect ? row : nil
     }
     
-    public func willDeselectRow(row: Int) -> Int? {
+    public func willDeselectRow(_ row: Int) -> Int? {
         return willDeselect ? row : nil
     }
     
-    public func didSelectRow(row: Int) {
+    public func didSelectRow(_ row: Int) {
         didSelect()
     }
     
-    public func didDeselectRow(row: Int) {
+    public func didDeselectRow(_ row: Int) {
         didDeselect()
     }
     
-    public func editingStyleForRow(row: Int) -> UITableViewCellEditingStyle {
+    public func editingStyleForRow(_ row: Int) -> UITableViewCellEditingStyle {
         return editingStyle
     }
     
-    public func titleForDeleteConfirmationButtonForRow(row: Int) -> String? {
+    public func titleForDeleteConfirmationButtonForRow(_ row: Int) -> String? {
         return titleForDeleteConfirmationButton
     }
     
-    public func editActionsForRow(row: Int) -> [UITableViewRowAction]? {
+    public func editActionsForRow(_ row: Int) -> [UITableViewRowAction]? {
         return editActions
     }
     
-    public func shouldIndentWhileEditingRow(row: Int) -> Bool {
+    public func shouldIndentWhileEditingRow(_ row: Int) -> Bool {
         return shouldIndentWhileEditing
     }
     
-    public func willBeginEditingRow(row: Int) {
+    public func willBeginEditingRow(_ row: Int) {
         willBeginEditing()
     }
     
-    public func didEndEditingRow(row: Int) {
+    public func didEndEditingRow(_ row: Int?) {
         didEndEditing()
     }
     
-    public func indentationLevelForRow(row: Int) -> Int {
+    public func indentationLevelForRow(_ row: Int) -> Int {
         return indentationLevel
     }
     
-    public func shouldShowMenuForRow(row: Int) -> Bool {
+    public func shouldShowMenuForRow(_ row: Int) -> Bool {
         return shouldShowMenu
     }
     
-    public func canPerformAction(action: Selector, forRow row: Int, withSender sender: AnyObject?) -> Bool {
+    public func canPerformAction(_ action: Selector, forRow row: Int, withSender sender: Any?) -> Bool {
         return canPerformAction(action, withSender: sender)
     }
     
-    public func performAction(action: Selector, forRow row: Int, withSender sender: AnyObject?) {
+    public func performAction(_ action: Selector, forRow row: Int, withSender sender: Any?) {
         performAction(action, withSender: sender)
     }
     
@@ -96,19 +96,19 @@ extension RowSource where Self : SectionSource {
         return 1
     }
     
-    public func cellForRow(row: Int) -> UITableViewCell {
+    public func cellForRow(_ row: Int) -> UITableViewCell {
         return cell
     }
     
-    public func canEditRow(row: Int) -> Bool {
+    public func canEditRow(_ row: Int) -> Bool {
         return canEdit
     }
     
-    public func canMoveRow(row: Int) -> Bool {
+    public func canMoveRow(_ row: Int) -> Bool {
         return canMove
     }
     
-    public func commitEditingStyle(editingStyle: UITableViewCellEditingStyle, forRow row: Int) {
+    public func commitEditingStyle(_ editingStyle: UITableViewCellEditingStyle, forRow row: Int) {
         commitEditingStyle(editingStyle)
     }
     

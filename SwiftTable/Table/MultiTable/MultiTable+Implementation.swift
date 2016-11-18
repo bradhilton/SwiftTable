@@ -10,155 +10,156 @@ extension MultiTable {
     
     // Delegate
     
-    public func willDisplayCell(cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    public func willDisplayCell(_ cell: UITableViewCell, forRowAtIndexPath indexPath: IndexPath) {
         delegate(indexPath) { $0.willDisplayCell(cell, forRowAtIndexPath: $1) }
     }
     
-    public func willDisplayHeaderView(view: UIView, forSection section: Int) {
+    public func willDisplayHeaderView(_ view: UIView, forSection section: Int) {
         delegate(section) { $0.willDisplayHeaderView(view, forSection: $1) }
     }
     
-    public func willDisplayFooterView(view: UIView, forSection section: Int) {
+    public func willDisplayFooterView(_ view: UIView, forSection section: Int) {
         delegate(section) { $0.willDisplayFooterView(view, forSection: $1) }
     }
     
-    public func didEndDisplayingCell(cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    public func didEndDisplayingCell(_ cell: UITableViewCell, forRowAtIndexPath indexPath: IndexPath) {
         delegate(indexPath) { $0.didEndDisplayingCell(cell, forRowAtIndexPath: $1) }
     }
     
-    public func didEndDisplayingHeaderView(view: UIView, forSection section: Int) {
+    public func didEndDisplayingHeaderView(_ view: UIView, forSection section: Int) {
         delegate(section) { $0.didEndDisplayingHeaderView(view, forSection: $1) }
     }
     
-    public func didEndDisplayingFooterView(view: UIView, forSection section: Int) {
+    public func didEndDisplayingFooterView(_ view: UIView, forSection section: Int) {
         delegate(section) { $0.didEndDisplayingFooterView(view, forSection: $1) }
     }
     
-    public func heightForRowAtIndexPath(indexPath: NSIndexPath) -> CGFloat {
+    public func heightForRowAtIndexPath(_ indexPath: IndexPath) -> CGFloat {
         return delegate(indexPath) { $0.heightForRowAtIndexPath($1) } ?? _parent.rowHeight
     }
     
-    public func heightForHeaderInSection(section: Int) -> CGFloat {
+    public func heightForHeaderInSection(_ section: Int) -> CGFloat {
         return delegate(section) { $0.heightForHeaderInSection($1) } ?? defaultHeightForHeaderInSection(section)
     }
     
-    public func heightForFooterInSection(section: Int) -> CGFloat {
+    public func heightForFooterInSection(_ section: Int) -> CGFloat {
         return delegate(section) { $0.heightForFooterInSection($1) } ?? defaultHeightForHeaderInSection(section)
     }
     
-    public func estimatedHeightForRowAtIndexPath(indexPath: NSIndexPath) -> CGFloat {
+    public func estimatedHeightForRowAtIndexPath(_ indexPath: IndexPath) -> CGFloat {
         return delegate(indexPath) { $0.estimatedHeightForRowAtIndexPath($1) } ?? _parent.estimatedRowHeight
     }
     
-    public func estimatedHeightForHeaderInSection(section: Int) -> CGFloat {
+    public func estimatedHeightForHeaderInSection(_ section: Int) -> CGFloat {
         return delegate(section) { $0.estimatedHeightForHeaderInSection($1) } ?? defaultHeightForHeaderInSection(section)
     }
     
-    public func estimatedHeightForFooterInSection(section: Int) -> CGFloat {
+    public func estimatedHeightForFooterInSection(_ section: Int) -> CGFloat {
         return delegate(section) { $0.estimatedHeightForFooterInSection($1) } ?? defaultHeightForFooterInSection(section)
     }
     
-    public func viewForHeaderInSection(section: Int) -> UIView? {
+    public func viewForHeaderInSection(_ section: Int) -> UIView? {
         return delegate(section) { $0.viewForHeaderInSection($1) }
     }
     
-    public func viewForFooterInSection(section: Int) -> UIView? {
+    public func viewForFooterInSection(_ section: Int) -> UIView? {
         return delegate(section) { $0.viewForFooterInSection($1) }
     }
     
-    public func accessoryButtonTappedForRowWithIndexPath(indexPath: NSIndexPath) {
+    public func accessoryButtonTappedForRowWithIndexPath(_ indexPath: IndexPath) {
         delegate(indexPath) { $0.accessoryButtonTappedForRowWithIndexPath($1) }
     }
     
-    public func shouldHighlightRowAtIndexPath(indexPath: NSIndexPath) -> Bool {
+    public func shouldHighlightRowAtIndexPath(_ indexPath: IndexPath) -> Bool {
         return delegate(indexPath) { $0.shouldHighlightRowAtIndexPath($1) } ?? true
     }
     
-    public func didHighlightRowAtIndexPath(indexPath: NSIndexPath) {
+    public func didHighlightRowAtIndexPath(_ indexPath: IndexPath) {
         delegate(indexPath) { $0.didHighlightRowAtIndexPath($1) }
     }
     
-    public func didUnhighlightRowAtIndexPath(indexPath: NSIndexPath) {
+    public func didUnhighlightRowAtIndexPath(_ indexPath: IndexPath) {
         delegate(indexPath) { $0.didUnhighlightRowAtIndexPath($1) }
     }
     
-    public func willSelectRowAtIndexPath(indexPath: NSIndexPath) -> NSIndexPath? {
+    public func willSelectRowAtIndexPath(_ indexPath: IndexPath) -> IndexPath? {
         guard let table = tableForSection(indexPath.section),
-            relativePath = table.willSelectRowAtIndexPath(indexPathForTable(table, indexPath: indexPath)) else {
+            let relativePath = table.willSelectRowAtIndexPath(indexPathForTable(table, indexPath: indexPath)) else {
                 return indexPath
         }
         return indexPathFromTable(table, indexPath: relativePath)
     }
     
-    public func willDeselectRowAtIndexPath(indexPath: NSIndexPath) -> NSIndexPath? {
+    public func willDeselectRowAtIndexPath(_ indexPath: IndexPath) -> IndexPath? {
         guard let table = tableForSection(indexPath.section),
-            relativePath = table.willDeselectRowAtIndexPath(indexPathForTable(table, indexPath: indexPath)) else {
+            let relativePath = table.willDeselectRowAtIndexPath(indexPathForTable(table, indexPath: indexPath)) else {
                 return indexPath
         }
         return indexPathFromTable(table, indexPath: relativePath)
     }
     
-    public func didSelectRowAtIndexPath(indexPath: NSIndexPath) {
+    public func didSelectRowAtIndexPath(_ indexPath: IndexPath) {
         delegate(indexPath) { $0.didSelectRowAtIndexPath($1) }
     }
     
-    public func didDeselectRowAtIndexPath(indexPath: NSIndexPath) {
+    public func didDeselectRowAtIndexPath(_ indexPath: IndexPath) {
         delegate(indexPath) { $0.didDeselectRowAtIndexPath($1) }
     }
     
-    public func editingStyleForRowAtIndexPath(indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
-        return delegate(indexPath) { $0.editingStyleForRowAtIndexPath($1) } ?? .None
+    public func editingStyleForRowAtIndexPath(_ indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return delegate(indexPath) { $0.editingStyleForRowAtIndexPath($1) } ?? .none
     }
     
-    public func titleForDeleteConfirmationButtonForRowAtIndexPath(indexPath: NSIndexPath) -> String? {
+    public func titleForDeleteConfirmationButtonForRowAtIndexPath(_ indexPath: IndexPath) -> String? {
         return delegate(indexPath) { $0.titleForDeleteConfirmationButtonForRowAtIndexPath($1) }
     }
     
-    public func editActionsForRowAtIndexPath(indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+    public func editActionsForRowAtIndexPath(_ indexPath: IndexPath) -> [UITableViewRowAction]? {
         return delegate(indexPath) { $0.editActionsForRowAtIndexPath($1) }
     }
     
-    public func shouldIndentWhileEditingRowAtIndexPath(indexPath: NSIndexPath) -> Bool {
+    public func shouldIndentWhileEditingRowAtIndexPath(_ indexPath: IndexPath) -> Bool {
         return delegate(indexPath) { $0.shouldIndentWhileEditingRowAtIndexPath($1) } ?? true
     }
     
-    public func willBeginEditingRowAtIndexPath(indexPath: NSIndexPath) {
+    public func willBeginEditingRowAtIndexPath(_ indexPath: IndexPath) {
         delegate(indexPath) { $0.willBeginEditingRowAtIndexPath($1) }
     }
     
-    public func didEndEditingRowAtIndexPath(indexPath: NSIndexPath) {
+    public func didEndEditingRowAtIndexPath(_ indexPath: IndexPath?) {
+        guard let indexPath = indexPath else { return }
         delegate(indexPath) { $0.didEndEditingRowAtIndexPath($1) }
     }
     
-    public func targetIndexPathForMoveFromRowAtIndexPath(sourceIndexPath: NSIndexPath, toProposedIndexPath proposedDestinationIndexPath: NSIndexPath) -> NSIndexPath {
-        guard let source = tableForSection(sourceIndexPath.section) where source === tableForSection(proposedDestinationIndexPath.section) else { return sourceIndexPath }
+    public func targetIndexPathForMoveFromRowAtIndexPath(_ sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
+        guard let source = tableForSection(sourceIndexPath.section), source === tableForSection(proposedDestinationIndexPath.section) else { return sourceIndexPath }
         return indexPathFromTable(source,
             indexPath: source.targetIndexPathForMoveFromRowAtIndexPath(indexPathForTable(source, indexPath: sourceIndexPath), toProposedIndexPath: indexPathForTable(source, indexPath: proposedDestinationIndexPath)))
     }
     
-    public func indentationLevelForRowAtIndexPath(indexPath: NSIndexPath) -> Int {
+    public func indentationLevelForRowAtIndexPath(_ indexPath: IndexPath) -> Int {
         return delegate(indexPath) { $0.indentationLevelForRowAtIndexPath($1) } ?? 15
     }
     
-    public func shouldShowMenuForRowAtIndexPath(indexPath: NSIndexPath) -> Bool {
+    public func shouldShowMenuForRowAtIndexPath(_ indexPath: IndexPath) -> Bool {
         return delegate(indexPath) { $0.shouldShowMenuForRowAtIndexPath($1) } ?? false
     }
     
-    public func canPerformAction(action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
+    public func canPerformAction(_ action: Selector, forRowAtIndexPath indexPath: IndexPath, withSender sender: Any?) -> Bool {
         return delegate(indexPath) { $0.canPerformAction(action, forRowAtIndexPath: $1, withSender: sender) } ?? false
     }
     
-    public func performAction(action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
+    public func performAction(_ action: Selector, forRowAtIndexPath indexPath: IndexPath, withSender sender: Any?) {
         delegate(indexPath) { $0.performAction(action, forRowAtIndexPath: $1, withSender: sender) }
     }
     
     // Data Source
     
-    public func numberOfRowsInSection(section: Int) -> Int {
+    public func numberOfRowsInSection(_ section: Int) -> Int {
         return delegate(section) { $0.numberOfRowsInSection($1) } ?? 0
     }
     
-    public func cellForRowAtIndexPath(indexPath: NSIndexPath) -> UITableViewCell {
+    public func cellForRowAtIndexPath(_ indexPath: IndexPath) -> UITableViewCell {
         return delegate(indexPath) { $0.cellForRowAtIndexPath($1) } ?? UITableViewCell()
     }
     
@@ -166,19 +167,19 @@ extension MultiTable {
         return tables.reduce(0) { $0 + $1.numberOfSections }
     }
     
-    public func titleForHeaderInSection(section: Int) -> String? {
+    public func titleForHeaderInSection(_ section: Int) -> String? {
         return delegate(section) { $0.titleForHeaderInSection($1) }
     }
     
-    public func titleForFooterInSection(section: Int) -> String? {
+    public func titleForFooterInSection(_ section: Int) -> String? {
         return delegate(section) { $0.titleForFooterInSection($1) }
     }
     
-    public func canEditRowAtIndexPath(indexPath: NSIndexPath) -> Bool {
+    public func canEditRowAtIndexPath(_ indexPath: IndexPath) -> Bool {
         return delegate(indexPath) { $0.canEditRowAtIndexPath($1) } ?? false
     }
     
-    public func canMoveRowAtIndexPath(indexPath: NSIndexPath) -> Bool {
+    public func canMoveRowAtIndexPath(_ indexPath: IndexPath) -> Bool {
         return delegate(indexPath) { $0.canMoveRowAtIndexPath($1) } ?? false
     }
     
@@ -189,17 +190,17 @@ extension MultiTable {
         return sectionIndexTitles.count > 0 ? sectionIndexTitles : nil
     }
     
-    public func sectionForSectionIndexTitle(title: String, atIndex index: Int) -> Int {
+    public func sectionForSectionIndexTitle(_ title: String, atIndex index: Int) -> Int {
         guard let source = tableForSectionTitleAtIndex(index) else { return 0 }
         return source.sectionForSectionIndexTitle(title, atIndex: index) + sectionOffsetForTable(source)
     }
     
-    public func commitEditingStyle(editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    public func commitEditingStyle(_ editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: IndexPath) {
         delegate(indexPath) { $0.commitEditingStyle(editingStyle, forRowAtIndexPath: $1) }
     }
     
-    public func moveRowAtIndexPath(sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
-        if let source = tableForSection(sourceIndexPath.section) where source === tableForSection(destinationIndexPath.section) {
+    public func moveRowAtIndexPath(_ sourceIndexPath: IndexPath, toIndexPath destinationIndexPath: IndexPath) {
+        if let source = tableForSection(sourceIndexPath.section), source === tableForSection(destinationIndexPath.section) {
             source.moveRowAtIndexPath(indexPathForTable(source, indexPath: sourceIndexPath), toIndexPath: indexPathForTable(source, indexPath: destinationIndexPath))
         }
     }
