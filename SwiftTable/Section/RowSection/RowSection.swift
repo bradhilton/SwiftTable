@@ -6,7 +6,6 @@
 //  Copyright © 2016 Brad Hilton. All rights reserved.
 //
 
-import AssociatedValues
 import OrderedObjectSet
 
 private var rowsKey = "rows"
