@@ -9,6 +9,8 @@
 import AssociatedValues
 import OrderedObjectSet
 
+private var rowsKey = "rows"
+
 public protocol RowSection : SectionSource, SectionInterface {
     var rows: OrderedObjectSet<RowSource> { get set }
 }
@@ -17,12 +19,16 @@ extension RowSection {
     
     public var rows: OrderedObjectSet<RowSource> {
         get {
-            return getAssociatedValue(key: "rows", object: self, initialValue: OrderedObjectSet())
+            guard let rows = objc_getAssociatedObject(self, &rowsKey) as? OrderedObjectSet<RowSource> else {
+                self.rows = OrderedObjectSet()
+                return self.rows
+            }
+            return rows
         }
         set {
             rows.subtracting(newValue).forEach { $0.section = nil }
             newValue.subtracting(rows).forEach { $0.section = self }
-            set(associatedValue: newValue, key: "rows", object: self)
+            objc_setAssociatedObject(self, &rowsKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     

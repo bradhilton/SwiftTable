@@ -6,19 +6,19 @@
 //  Copyright © 2016 Brad Hilton. All rights reserved.
 //
 
-import AssociatedValues
+private var sectionKey = "section"
 
 extension RowSource where Self : SectionSource, Self : SectionInterface {
     
     public var section: SectionInterface? {
         get {
-            guard let section: SectionInterface = getAssociatedValue(key: "section", object: self) else {
+            guard let section = objc_getAssociatedObject(self, &sectionKey) as? SectionInterface else {
                 return self
             }
             return section
         }
         set {
-            set(weakAssociatedValue: newValue as AnyObject, key: "section", object: self)
+            objc_setAssociatedObject(self, &sectionKey, newValue, .OBJC_ASSOCIATION_ASSIGN)
         }
     }
     

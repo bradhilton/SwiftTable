@@ -6,8 +6,9 @@
 //  Copyright © 2016 Brad Hilton. All rights reserved.
 //
 
-import AssociatedValues
 import OrderedObjectSet
+
+private var tablesKey = "tables"
 
 public protocol MultiTable : TableSource, ParentInterface {
     var tables: OrderedObjectSet<TableSource> { get set }
@@ -17,12 +18,16 @@ extension MultiTable {
     
     public var tables: OrderedObjectSet<TableSource> {
         get {
-            return getAssociatedValue(key: "tables", object: self, initialValue: OrderedObjectSet())
+            guard let tables = objc_getAssociatedObject(self, &tablesKey) as? OrderedObjectSet<TableSource> else {
+                self.tables = OrderedObjectSet()
+                return self.tables
+            }
+            return tables
         }
         set {
             tables.subtracting(newValue).forEach { $0.parent = nil }
             newValue.subtracting(tables).forEach { $0.parent = self }
-            set(associatedValue: newValue, key: "tables", object: self)
+            objc_setAssociatedObject(self, &tablesKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     

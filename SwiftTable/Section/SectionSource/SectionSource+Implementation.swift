@@ -6,7 +6,11 @@
 //  Copyright © 2016 Brad Hilton. All rights reserved.
 //
 
-import AssociatedValues
+private var headerViewKey = "headerView"
+private var footerViewKey = "footerView"
+private var headerTitleKey = "headerTitle"
+private var footerTitleKey = "footerTitle"
+private var indexTitleKey = "indexTitle"
 
 extension SectionSource {
     
@@ -53,19 +57,19 @@ extension SectionSource {
     
     public var viewForHeader: UIView? {
         get {
-            return getAssociatedValue(key: "viewForHeader", object: self)
+            return objc_getAssociatedObject(self, &headerViewKey) as? UIView
         }
         set {
-            set(associatedValue: newValue, key: "viewForHeader", object: self)
+            objc_setAssociatedObject(self, &headerViewKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     
     public var viewForFooter: UIView? {
         get {
-            return getAssociatedValue(key: "viewForFooter", object: self)
+            return objc_getAssociatedObject(self, &footerViewKey) as? UIView
         }
         set {
-            set(associatedValue: newValue, key: "viewForFooter", object: self)
+            objc_setAssociatedObject(self, &footerViewKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     
@@ -138,19 +142,19 @@ extension SectionSource {
     
     public var titleForHeader: String? {
         get {
-            return getAssociatedValue(key: "titleForHeader", object: self)
+            return objc_getAssociatedObject(self, &headerTitleKey) as? String
         }
         set {
-            set(associatedValue: newValue, key: "titleForHeader", object: self)
+            objc_setAssociatedObject(self, &headerTitleKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     
     public var titleForFooter: String? {
         get {
-            return getAssociatedValue(key: "titleForFooter", object: self)
+            return objc_getAssociatedObject(self, &footerTitleKey) as? String
         }
         set {
-            set(associatedValue: newValue, key: "titleForFooter", object: self)
+            objc_setAssociatedObject(self, &footerTitleKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     
@@ -164,10 +168,10 @@ extension SectionSource {
     
     public var sectionIndexTitle: String? {
         get {
-            return getAssociatedValue(key: "sectionIndexTitle", object: self)
+            return objc_getAssociatedObject(self, &indexTitleKey) as? String
         }
         set {
-            set(associatedValue: newValue, key: "sectionIndexTitle", object: self)
+            objc_setAssociatedObject(self, &indexTitleKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     

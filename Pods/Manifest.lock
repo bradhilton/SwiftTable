@@ -1,13 +1,10 @@
 PODS:
-  - AssociatedValues (3.0.0)
   - OrderedObjectSet (3.0.0)
 
 DEPENDENCIES:
-  - AssociatedValues (~> 3.0.0)
   - OrderedObjectSet (~> 3.0.0)
 
 SPEC CHECKSUMS:
-  AssociatedValues: 5c29f5c0bb2672cf9ef0394bcbe3ce28b9fa0c2a
   OrderedObjectSet: b6907ba8705510f6b94ed1a1adc434bb74f6c7fc
 
 PODFILE CHECKSUM: 53fb719d86df22c1a21eb0a60f15dcdb84caf2ac

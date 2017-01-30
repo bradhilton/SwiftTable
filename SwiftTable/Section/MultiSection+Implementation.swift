@@ -6,8 +6,6 @@
 //  Copyright © 2016 Brad Hilton. All rights reserved.
 //
 
-import AssociatedValues
-
 extension MultiSection {
     
     // Delegate

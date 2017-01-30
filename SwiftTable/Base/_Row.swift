@@ -6,8 +6,9 @@
 //  Copyright © 2016 Brad Hilton. All rights reserved.
 //
 
-import AssociatedValues
 import OrderedObjectSet
+
+private var sectionKey = "section"
 
 class EmptySection : RowSection {
     var rows = OrderedObjectSet<RowSource>()
@@ -21,10 +22,10 @@ extension _Row {
     
     public var section: SectionInterface? {
         get {
-            return getAssociatedValue(key: "section", object: self)
+            return objc_getAssociatedObject(self, &sectionKey) as? SectionInterface
         }
         set {
-            set(weakAssociatedValue: newValue as AnyObject, key: "section", object: self)
+            objc_setAssociatedObject(self, &sectionKey, newValue, .OBJC_ASSOCIATION_ASSIGN)
         }
     }
     

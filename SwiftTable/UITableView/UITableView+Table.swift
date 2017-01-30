@@ -6,7 +6,7 @@
 //  Copyright © 2016 Brad Hilton. All rights reserved.
 //
 
-import AssociatedValues
+private var bridgeKey = "bridge"
 
 func sectionHeightForStyle(_ style: UITableViewStyle, header: Bool) -> CGFloat {
     return style == .plain ? 24 : (header ? 40 : 30)
@@ -16,11 +16,10 @@ extension UITableView {
     
     public weak var table: TableSource? {
         get {
-            guard let bridge: Bridge = getAssociatedValue(key: "table", object: self) else { return nil }
-            return bridge.table
+            return (objc_getAssociatedObject(self, &bridgeKey) as? Bridge)?.table
         }
         set {
-            set(associatedValue: Bridge(tableView: self, table: newValue), key: "table", object: self)
+            objc_setAssociatedObject(self, &bridgeKey, Bridge(tableView: self, table: newValue), .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     

@@ -6,8 +6,9 @@
 //  Copyright © 2016 Brad Hilton. All rights reserved.
 //
 
-import AssociatedValues
 import OrderedObjectSet
+
+private var tableKey = "table"
 
 class EmptyTable : SectionTable {
     var sections = OrderedObjectSet<SectionSource>()
@@ -21,10 +22,10 @@ extension _Section {
     
     public var table: TableInterface? {
         get {
-            return getAssociatedValue(key: "table", object: self)
+            return objc_getAssociatedObject(self, &tableKey) as? TableInterface
         }
         set {
-            set(weakAssociatedValue: newValue as AnyObject, key: "table", object: self)
+            objc_setAssociatedObject(self, &tableKey, newValue, .OBJC_ASSOCIATION_ASSIGN)
         }
     }
     

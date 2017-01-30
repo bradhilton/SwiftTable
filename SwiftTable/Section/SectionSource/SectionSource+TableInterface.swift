@@ -6,19 +6,19 @@
 //  Copyright © 2016 Brad Hilton. All rights reserved.
 //
 
-import AssociatedValues
+private var tableKey = "table"
 
 extension SectionSource where Self : TableSource, Self : TableInterface {
     
     public var table: TableInterface? {
         get {
-            guard let table: TableInterface = getAssociatedValue(key: "table", object: self) else {
+            guard let table = objc_getAssociatedObject(self, &tableKey) as? TableInterface else {
                 return self
             }
             return table
         }
         set {
-            set(weakAssociatedValue: newValue as AnyObject, key: "table", object: self)
+            objc_setAssociatedObject(self, &tableKey, newValue, .OBJC_ASSOCIATION_ASSIGN)
         }
     }
     

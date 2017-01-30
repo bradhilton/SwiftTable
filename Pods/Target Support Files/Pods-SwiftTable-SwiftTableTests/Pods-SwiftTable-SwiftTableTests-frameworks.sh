@@ -84,10 +84,8 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/AssociatedValues/AssociatedValues.framework"
   install_framework "$BUILT_PRODUCTS_DIR/OrderedObjectSet/OrderedObjectSet.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/AssociatedValues/AssociatedValues.framework"
   install_framework "$BUILT_PRODUCTS_DIR/OrderedObjectSet/OrderedObjectSet.framework"
 fi

@@ -6,7 +6,7 @@
 //  Copyright © 2016 Brad Hilton. All rights reserved.
 //
 
-import AssociatedValues
+private var parentKey = "parent"
 
 public protocol _Table : class {
     weak var parent: ParentInterface? { get set }
@@ -16,10 +16,10 @@ extension _Table {
     
     public var parent: ParentInterface? {
         get {
-            return getAssociatedValue(key: "parent", object: self)
+            return objc_getAssociatedObject(self, &parentKey) as? ParentInterface
         }
         set {
-            set(weakAssociatedValue: newValue as AnyObject, key: "parent", object: self)
+            objc_setAssociatedObject(self, &parentKey, newValue, .OBJC_ASSOCIATION_ASSIGN)
         }
     }
     

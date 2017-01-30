@@ -6,8 +6,9 @@
 //  Copyright © 2016 Brad Hilton. All rights reserved.
 //
 
-import AssociatedValues
 import OrderedObjectSet
+
+private var sectionsKey = "sections"
 
 public protocol MultiSection : SectionSource, TableInterface {
     var sections: OrderedObjectSet<SectionSource> { get set }
@@ -17,12 +18,16 @@ extension MultiSection {
     
     public var sections: OrderedObjectSet<SectionSource> {
         get {
-            return getAssociatedValue(key: "sections", object: self, initialValue: OrderedObjectSet())
+            guard let sections = objc_getAssociatedObject(self, &sectionsKey) as? OrderedObjectSet<SectionSource> else {
+                self.sections = OrderedObjectSet()
+                return self.sections
+            }
+            return sections
         }
         set {
             sections.subtracting(newValue).forEach { $0.table = nil }
             newValue.subtracting(sections).forEach { $0.table = self }
-            set(associatedValue: newValue, key: "sections", object: self)
+            objc_setAssociatedObject(self, &sectionsKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     
