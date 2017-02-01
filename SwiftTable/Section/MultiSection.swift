@@ -19,7 +19,6 @@ extension MultiSection {
     public var sections: OrderedObjectSet<SectionSource> {
         get {
             guard let sections = objc_getAssociatedObject(self, &sectionsKey) as? OrderedObjectSet<SectionSource> else {
-                self.sections = []
                 return []
             }
             return sections
