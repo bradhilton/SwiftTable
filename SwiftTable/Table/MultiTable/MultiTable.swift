@@ -19,8 +19,8 @@ extension MultiTable {
     public var tables: OrderedObjectSet<TableSource> {
         get {
             guard let tables = objc_getAssociatedObject(self, &tablesKey) as? OrderedObjectSet<TableSource> else {
-                self.tables = OrderedObjectSet()
-                return self.tables
+                self.tables = []
+                return []
             }
             return tables
         }

@@ -19,8 +19,8 @@ extension SectionTable {
     public var sections: OrderedObjectSet<SectionSource> {
         get {
             guard let sections = objc_getAssociatedObject(self, &sectionsKey) as? OrderedObjectSet<SectionSource> else {
-                self.sections = OrderedObjectSet()
-                return self.sections
+                self.sections = []
+                return []
             }
             return sections
         }

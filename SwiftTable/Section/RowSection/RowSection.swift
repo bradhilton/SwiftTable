@@ -19,8 +19,8 @@ extension RowSection {
     public var rows: OrderedObjectSet<RowSource> {
         get {
             guard let rows = objc_getAssociatedObject(self, &rowsKey) as? OrderedObjectSet<RowSource> else {
-                self.rows = OrderedObjectSet()
-                return self.rows
+                self.rows = []
+                return []
             }
             return rows
         }
