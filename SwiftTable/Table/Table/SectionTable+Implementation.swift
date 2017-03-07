@@ -136,14 +136,6 @@ extension SectionTable {
         return sections[indexPath.section].shouldShowMenuForRow(indexPath.row)
     }
     
-    public func canPerformAction(_ action: Selector, forRowAtIndexPath indexPath: IndexPath, withSender sender: AnyObject?) -> Bool {
-        return sections[indexPath.section].canPerformAction(action, forRow: indexPath.row, withSender: sender)
-    }
-    
-    public func performAction(_ action: Selector, forRowAtIndexPath indexPath: IndexPath, withSender sender: AnyObject?) {
-        sections[indexPath.section].performAction(action, forRow: indexPath.row, withSender: sender)
-    }
-    
     // Data Source
     
     public func numberOfRowsInSection(_ section: Int) -> Int {

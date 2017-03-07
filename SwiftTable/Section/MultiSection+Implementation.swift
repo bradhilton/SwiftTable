@@ -107,14 +107,6 @@ extension MultiSection {
         return delegate(row) { $0.shouldShowMenuForRow($1) } ?? false
     }
     
-    public func canPerformAction(_ action: Selector, forRow row: Int, withSender sender: Any?) -> Bool {
-        return delegate(row) { $0.canPerformAction(action, forRow: $1, withSender: sender) } ?? false
-    }
-    
-    public func performAction(_ action: Selector, forRow row: Int, withSender sender: Any?) {
-        delegate(row) { $0.performAction(action, forRow: $1, withSender: sender) }
-    }
-    
     // Data Source
     
     public var numberOfRows: Int {

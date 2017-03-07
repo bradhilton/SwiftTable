@@ -108,12 +108,6 @@ extension TableSource {
         return false
     }
     
-    public func canPerformAction(_ action: Selector, forRowAtIndexPath indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-    
-    public func performAction(_ action: Selector, forRowAtIndexPath indexPath: IndexPath, withSender sender: Any?) {}
-    
     // Data Source
     
     public func numberOfRowsInSection(_ section: Int) -> Int {

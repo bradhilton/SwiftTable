@@ -132,14 +132,6 @@ extension SectionSource where Self : TableSource {
         return shouldShowMenuForRow(indexPath.row)
     }
     
-    public func canPerformAction(_ action: Selector, forRowAtIndexPath indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return canPerformAction(action, forRow: indexPath.row, withSender: sender)
-    }
-    
-    public func performAction(_ action: Selector, forRowAtIndexPath indexPath: IndexPath, withSender sender: Any?) {
-        performAction(action, forRow: indexPath.row, withSender: sender)
-    }
-    
     // Data Source
     
     public func numberOfRowsInSection(_ section: Int) -> Int {

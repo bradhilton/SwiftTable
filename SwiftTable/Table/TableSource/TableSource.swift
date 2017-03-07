@@ -41,8 +41,6 @@ public protocol TableSource : _Table {
     func targetIndexPathForMoveFromRowAtIndexPath(_ sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath
     func indentationLevelForRowAtIndexPath(_ indexPath: IndexPath) -> Int
     func shouldShowMenuForRowAtIndexPath(_ indexPath: IndexPath) -> Bool
-    func canPerformAction(_ action: Selector, forRowAtIndexPath indexPath: IndexPath, withSender sender: Any?) -> Bool
-    func performAction(_ action: Selector, forRowAtIndexPath indexPath: IndexPath, withSender sender: Any?)
     
     // Data Source
     

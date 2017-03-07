@@ -91,14 +91,6 @@ extension RowSection {
         return rows[row].shouldShowMenu
     }
     
-    public func canPerformAction(_ action: Selector, forRow row: Int, withSender sender: Any?) -> Bool {
-        return rows[row].canPerformAction(action, withSender: sender)
-    }
-    
-    public func performAction(_ action: Selector, forRow row: Int, withSender sender: Any?) {
-        rows[row].performAction(action, withSender: sender)
-    }
-    
     // Data Source
     
     public var numberOfRows: Int {

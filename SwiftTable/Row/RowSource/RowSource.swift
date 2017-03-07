@@ -30,8 +30,6 @@ public protocol RowSource : _Row {
     func didEndEditing()
     var indentationLevel: Int { get }
     var shouldShowMenu: Bool { get }
-    func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool
-    func performAction(_ action: Selector, withSender sender: Any?)
     
     // Data Source
     

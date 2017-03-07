@@ -41,8 +41,6 @@ public protocol SectionSource : _Section {
     func targetRowForMoveFromRow(_ sourceRow: Int, toProposedRow proposedDestinationRow: Int) -> Int
     func indentationLevelForRow(_ row: Int) -> Int
     func shouldShowMenuForRow(_ row: Int) -> Bool
-    func canPerformAction(_ action: Selector, forRow row: Int, withSender sender: Any?) -> Bool
-    func performAction(_ action: Selector, forRow row: Int, withSender sender: Any?)
     
     // Data Source
     

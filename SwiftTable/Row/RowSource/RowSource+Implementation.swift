@@ -67,12 +67,6 @@ extension RowSource {
     public var shouldShowMenu: Bool {
         return false
     }
-    
-    public func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
-        return false
-    }
-    
-    public func performAction(_ action: Selector, withSender sender: Any?) {}
 
     // Data Source
     

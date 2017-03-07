@@ -131,13 +131,5 @@ extension Bridge : UITableViewDelegate {
     func tableView(_ tableView: UITableView, shouldShowMenuForRowAt indexPath: IndexPath) -> Bool {
         return _table.shouldShowMenuForRowAtIndexPath(indexPath)
     }
-
-    func tableView(_ tableView: UITableView, canPerformAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return _table.canPerformAction(action, forRowAtIndexPath: indexPath, withSender: sender)
-    }
-
-    func tableView(_ tableView: UITableView, performAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) {
-        table?.performAction(action, forRowAtIndexPath: indexPath, withSender: sender)
-    }
     
 }

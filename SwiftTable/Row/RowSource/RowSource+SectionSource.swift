@@ -82,14 +82,6 @@ extension RowSource where Self : SectionSource {
         return shouldShowMenu
     }
     
-    public func canPerformAction(_ action: Selector, forRow row: Int, withSender sender: Any?) -> Bool {
-        return canPerformAction(action, withSender: sender)
-    }
-    
-    public func performAction(_ action: Selector, forRow row: Int, withSender sender: Any?) {
-        performAction(action, withSender: sender)
-    }
-    
     // Data Source
     
     public var numberOfRows: Int {

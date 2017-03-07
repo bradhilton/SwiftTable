@@ -124,12 +124,6 @@ extension SectionSource {
         return false
     }
     
-    public func canPerformAction(_ action: Selector, forRow row: Int, withSender sender: Any?) -> Bool {
-        return false
-    }
-    
-    public func performAction(_ action: Selector, forRow row: Int, withSender sender: Any?) {}
-    
     // Data Source
     
     public var numberOfRows: Int {

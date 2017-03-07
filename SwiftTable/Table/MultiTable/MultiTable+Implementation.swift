@@ -145,14 +145,6 @@ extension MultiTable {
         return delegate(indexPath) { $0.shouldShowMenuForRowAtIndexPath($1) } ?? false
     }
     
-    public func canPerformAction(_ action: Selector, forRowAtIndexPath indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return delegate(indexPath) { $0.canPerformAction(action, forRowAtIndexPath: $1, withSender: sender) } ?? false
-    }
-    
-    public func performAction(_ action: Selector, forRowAtIndexPath indexPath: IndexPath, withSender sender: Any?) {
-        delegate(indexPath) { $0.performAction(action, forRowAtIndexPath: $1, withSender: sender) }
-    }
-    
     // Data Source
     
     public func numberOfRowsInSection(_ section: Int) -> Int {
