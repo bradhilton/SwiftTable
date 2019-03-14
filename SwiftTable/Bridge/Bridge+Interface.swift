@@ -8,7 +8,7 @@
 
 extension Bridge : ParentInterface {
     
-    var style: UITableViewStyle {
+    var style: UITableView.Style {
         return _tableView.style
     }
     
@@ -148,11 +148,11 @@ extension Bridge : ParentInterface {
         return tableView?.footerView(forSection: section)
     }
     
-    func scrollToRowAtIndexPath(_ indexPath: IndexPath, inTable table: TableSource, atScrollPosition scrollPosition: UITableViewScrollPosition, animated: Bool) {
+    func scrollToRowAtIndexPath(_ indexPath: IndexPath, inTable table: TableSource, atScrollPosition scrollPosition: UITableView.ScrollPosition, animated: Bool) {
         tableView?.scrollToRow(at: indexPath, at: scrollPosition, animated: animated)
     }
     
-    func scrollToNearestSelectedRowAtScrollPosition(_ scrollPosition: UITableViewScrollPosition, animated: Bool) {
+    func scrollToNearestSelectedRowAtScrollPosition(_ scrollPosition: UITableView.ScrollPosition, animated: Bool) {
         tableView?.scrollToNearestSelectedRow(at: scrollPosition, animated: animated)
     }
     
@@ -164,15 +164,15 @@ extension Bridge : ParentInterface {
         tableView?.endUpdates()
     }
     
-    func insertSections(_ sections: IndexSet, inTable table: TableSource, withRowAnimation animation: UITableViewRowAnimation) {
+    func insertSections(_ sections: IndexSet, inTable table: TableSource, withRowAnimation animation: UITableView.RowAnimation) {
         tableView?.insertSections(sections, with: animation)
     }
     
-    func deleteSections(_ sections: IndexSet, inTable table: TableSource, withRowAnimation animation: UITableViewRowAnimation) {
+    func deleteSections(_ sections: IndexSet, inTable table: TableSource, withRowAnimation animation: UITableView.RowAnimation) {
         tableView?.deleteSections(sections, with: animation)
     }
     
-    func reloadSections(_ sections: IndexSet, inTable table: TableSource, withRowAnimation animation: UITableViewRowAnimation) {
+    func reloadSections(_ sections: IndexSet, inTable table: TableSource, withRowAnimation animation: UITableView.RowAnimation) {
         tableView?.reloadSections(sections, with: animation)
     }
     
@@ -180,15 +180,15 @@ extension Bridge : ParentInterface {
         tableView?.moveSection(section, toSection: newSection)
     }
     
-    func insertRowsAtIndexPaths(_ indexPaths: [IndexPath], inTable table: TableSource, withRowAnimation animation: UITableViewRowAnimation) {
+    func insertRowsAtIndexPaths(_ indexPaths: [IndexPath], inTable table: TableSource, withRowAnimation animation: UITableView.RowAnimation) {
         tableView?.insertRows(at: indexPaths, with: animation)
     }
     
-    func deleteRowsAtIndexPaths(_ indexPaths: [IndexPath], inTable table: TableSource, withRowAnimation animation: UITableViewRowAnimation) {
+    func deleteRowsAtIndexPaths(_ indexPaths: [IndexPath], inTable table: TableSource, withRowAnimation animation: UITableView.RowAnimation) {
         tableView?.deleteRows(at: indexPaths, with: animation)
     }
     
-    func reloadRowsAtIndexPaths(_ indexPaths: [IndexPath], inTable table: TableSource, withRowAnimation animation: UITableViewRowAnimation) {
+    func reloadRowsAtIndexPaths(_ indexPaths: [IndexPath], inTable table: TableSource, withRowAnimation animation: UITableView.RowAnimation) {
         tableView?.reloadRows(at: indexPaths, with: animation)
     }
     
@@ -253,7 +253,7 @@ extension Bridge : ParentInterface {
         return tableView?.indexPathsForSelectedRows
     }
     
-    func selectRowAtIndexPath(_ indexPath: IndexPath?, inTable table: TableSource, animated: Bool, scrollPosition: UITableViewScrollPosition) {
+    func selectRowAtIndexPath(_ indexPath: IndexPath?, inTable table: TableSource, animated: Bool, scrollPosition: UITableView.ScrollPosition) {
         tableView?.selectRow(at: indexPath, animated: animated, scrollPosition: scrollPosition)
     }
     
@@ -297,7 +297,7 @@ extension Bridge : ParentInterface {
         }
     }
     
-    var separatorStyle: UITableViewCellSeparatorStyle {
+    var separatorStyle: UITableViewCell.SeparatorStyle {
         get {
             return _tableView.separatorStyle
         }

@@ -8,7 +8,7 @@
 
 public protocol ParentInterface : class {
     
-    var style: UITableViewStyle { get }
+    var style: UITableView.Style { get }
     var rowHeight: CGFloat { get set }
     var sectionHeaderHeight: CGFloat { get set }
     var sectionFooterHeight: CGFloat { get set }
@@ -35,18 +35,18 @@ public protocol ParentInterface : class {
     func indexPathsForVisibleRowsInTable(_ table: TableSource) -> [IndexPath]?
     func headerViewForSection(_ section: Int, inTable table: TableSource) -> UITableViewHeaderFooterView?
     func footerViewForSection(_ section: Int, inTable table: TableSource) -> UITableViewHeaderFooterView?
-    func scrollToRowAtIndexPath(_ indexPath: IndexPath, inTable table: TableSource, atScrollPosition scrollPosition: UITableViewScrollPosition, animated: Bool)
-    func scrollToNearestSelectedRowAtScrollPosition(_ scrollPosition: UITableViewScrollPosition, animated: Bool)
+    func scrollToRowAtIndexPath(_ indexPath: IndexPath, inTable table: TableSource, atScrollPosition scrollPosition: UITableView.ScrollPosition, animated: Bool)
+    func scrollToNearestSelectedRowAtScrollPosition(_ scrollPosition: UITableView.ScrollPosition, animated: Bool)
     
     func beginUpdates()
     func endUpdates()
-    func insertSections(_ sections: IndexSet, inTable table: TableSource, withRowAnimation animation: UITableViewRowAnimation)
-    func deleteSections(_ sections: IndexSet, inTable table: TableSource, withRowAnimation animation: UITableViewRowAnimation)
-    func reloadSections(_ sections: IndexSet, inTable table: TableSource, withRowAnimation animation: UITableViewRowAnimation)
+    func insertSections(_ sections: IndexSet, inTable table: TableSource, withRowAnimation animation: UITableView.RowAnimation)
+    func deleteSections(_ sections: IndexSet, inTable table: TableSource, withRowAnimation animation: UITableView.RowAnimation)
+    func reloadSections(_ sections: IndexSet, inTable table: TableSource, withRowAnimation animation: UITableView.RowAnimation)
     func moveSection(_ section: Int, toSection newSection: Int, inTable table: TableSource)
-    func insertRowsAtIndexPaths(_ indexPaths: [IndexPath], inTable table: TableSource, withRowAnimation animation: UITableViewRowAnimation)
-    func deleteRowsAtIndexPaths(_ indexPaths: [IndexPath], inTable table: TableSource, withRowAnimation animation: UITableViewRowAnimation)
-    func reloadRowsAtIndexPaths(_ indexPaths: [IndexPath], inTable table: TableSource, withRowAnimation animation: UITableViewRowAnimation)
+    func insertRowsAtIndexPaths(_ indexPaths: [IndexPath], inTable table: TableSource, withRowAnimation animation: UITableView.RowAnimation)
+    func deleteRowsAtIndexPaths(_ indexPaths: [IndexPath], inTable table: TableSource, withRowAnimation animation: UITableView.RowAnimation)
+    func reloadRowsAtIndexPaths(_ indexPaths: [IndexPath], inTable table: TableSource, withRowAnimation animation: UITableView.RowAnimation)
     func moveRowAtIndexPath(_ indexPath: IndexPath, toIndexPath newIndexPath: IndexPath, inTable table: TableSource)
     
     var editing: Bool { get set }
@@ -59,7 +59,7 @@ public protocol ParentInterface : class {
     func indexPathForSelectedRowInTable(_ table: TableSource) -> IndexPath?
     func indexPathsForSelectedRowsInTable(_ table: TableSource) -> [IndexPath]?
     
-    func selectRowAtIndexPath(_ indexPath: IndexPath?, inTable table: TableSource, animated: Bool, scrollPosition: UITableViewScrollPosition)
+    func selectRowAtIndexPath(_ indexPath: IndexPath?, inTable table: TableSource, animated: Bool, scrollPosition: UITableView.ScrollPosition)
     func deselectRowAtIndexPath(_ indexPath: IndexPath, inTable table: TableSource, animated: Bool)
     
     var sectionIndexMinimumDisplayRowCount: Int { get set }
@@ -67,7 +67,7 @@ public protocol ParentInterface : class {
     var sectionIndexBackgroundColor: UIColor? { get set }
     var sectionIndexTrackingBackgroundColor: UIColor? { get set }
     
-    var separatorStyle: UITableViewCellSeparatorStyle { get set }
+    var separatorStyle: UITableViewCell.SeparatorStyle { get set }
     var separatorColor: UIColor? { get set }
     
     var separatorEffect: UIVisualEffect? { get set }

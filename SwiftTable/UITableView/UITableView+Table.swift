@@ -8,7 +8,7 @@
 
 private var bridgeKey = "bridge"
 
-func sectionHeightForStyle(_ style: UITableViewStyle, header: Bool) -> CGFloat {
+func sectionHeightForStyle(_ style: UITableView.Style, header: Bool) -> CGFloat {
     return style == .plain ? 24 : (header ? 40 : 30)
 }
 

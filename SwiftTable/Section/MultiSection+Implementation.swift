@@ -69,7 +69,7 @@ extension MultiSection {
         delegate(row) { $0.didDeselectRow($1) }
     }
     
-    public func editingStyleForRow(_ row: Int) -> UITableViewCellEditingStyle {
+    public func editingStyleForRow(_ row: Int) -> UITableViewCell.EditingStyle {
         return delegate(row) { $0.editingStyleForRow($1) } ?? .none
     }
     
@@ -125,7 +125,7 @@ extension MultiSection {
         return delegate(row) { $0.canMoveRow($1) } ?? false
     }
     
-    public func commitEditingStyle(_ editingStyle: UITableViewCellEditingStyle, forRow row: Int) {
+    public func commitEditingStyle(_ editingStyle: UITableViewCell.EditingStyle, forRow row: Int) {
         delegate(row) { $0.commitEditingStyle(editingStyle, forRow: $1) }
     }
     

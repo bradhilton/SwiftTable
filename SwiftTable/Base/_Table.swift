@@ -9,7 +9,7 @@
 private var parentKey = "parent"
 
 public protocol _Table : class {
-    weak var parent: ParentInterface? { get set }
+    var parent: ParentInterface? { get set }
 }
 
 extension _Table {

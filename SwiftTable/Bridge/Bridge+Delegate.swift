@@ -96,7 +96,7 @@ extension Bridge : UITableViewDelegate {
         table?.didDeselectRowAtIndexPath(indexPath)
     }
     
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return _table.editingStyleForRowAtIndexPath(indexPath)
     }
     

@@ -15,7 +15,7 @@ class EmptyTable : SectionTable {
 }
 
 public protocol _Section : class {
-    weak var table: TableInterface? { get set }
+    var table: TableInterface? { get set }
 }
 
 extension _Section {

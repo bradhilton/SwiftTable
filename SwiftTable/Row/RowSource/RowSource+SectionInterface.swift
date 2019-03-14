@@ -30,23 +30,23 @@ extension RowSource where Self : SectionSource, Self : SectionInterface {
         return table?.cellForRow(0, inSection: self)
     }
     
-    public func scrollToRow(_ row: RowSource, atScrollPosition scrollPosition: UITableViewScrollPosition, animated: Bool) {
+    public func scrollToRow(_ row: RowSource, atScrollPosition scrollPosition: UITableView.ScrollPosition, animated: Bool) {
         table?.scrollToRow(0, inSection: self, atScrollPosition: scrollPosition, animated: animated)
     }
     
-    public func insertRow(_ row: RowSource, withRowAnimation animation: UITableViewRowAnimation) {
+    public func insertRow(_ row: RowSource, withRowAnimation animation: UITableView.RowAnimation) {
         table?.insertRows([0], inSection: self, withRowAnimation: animation)
     }
     
-    public func deleteRow(_ row: RowSource, withRowAnimation animation: UITableViewRowAnimation) {
+    public func deleteRow(_ row: RowSource, withRowAnimation animation: UITableView.RowAnimation) {
         table?.deleteRows([0], inSection: self, withRowAnimation: animation)
     }
     
-    public func reloadRow(_ row: RowSource, withRowAnimation animation: UITableViewRowAnimation) {
+    public func reloadRow(_ row: RowSource, withRowAnimation animation: UITableView.RowAnimation) {
         table?.reloadRows([0], inSection: self, withRowAnimation: animation)
     }
     
-    public func selectRow(_ row: RowSource?, animated: Bool, scrollPosition: UITableViewScrollPosition) {
+    public func selectRow(_ row: RowSource?, animated: Bool, scrollPosition: UITableView.ScrollPosition) {
         table?.selectRow(row != nil ? 0 : nil, inSection: self, animated: animated, scrollPosition: scrollPosition)
     }
     

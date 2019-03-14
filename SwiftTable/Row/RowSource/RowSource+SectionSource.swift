@@ -50,7 +50,7 @@ extension RowSource where Self : SectionSource {
         didDeselect()
     }
     
-    public func editingStyleForRow(_ row: Int) -> UITableViewCellEditingStyle {
+    public func editingStyleForRow(_ row: Int) -> UITableViewCell.EditingStyle {
         return editingStyle
     }
     
@@ -100,7 +100,7 @@ extension RowSource where Self : SectionSource {
         return canMove
     }
     
-    public func commitEditingStyle(_ editingStyle: UITableViewCellEditingStyle, forRow row: Int) {
+    public func commitEditingStyle(_ editingStyle: UITableViewCell.EditingStyle, forRow row: Int) {
         commitEditingStyle(editingStyle)
     }
     

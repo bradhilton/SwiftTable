@@ -58,7 +58,7 @@ extension RowSection {
         rows[row].didDeselect()
     }
     
-    public func editingStyleForRow(_ row: Int) -> UITableViewCellEditingStyle {
+    public func editingStyleForRow(_ row: Int) -> UITableViewCell.EditingStyle {
         return rows[row].editingStyle
     }
     
@@ -109,7 +109,7 @@ extension RowSection {
         return rows[row].canMove
     }
     
-    public func commitEditingStyle(_ editingStyle: UITableViewCellEditingStyle, forRow row: Int) {
+    public func commitEditingStyle(_ editingStyle: UITableViewCell.EditingStyle, forRow row: Int) {
         rows[row].commitEditingStyle(editingStyle)
     }
     

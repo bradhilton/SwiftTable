@@ -32,7 +32,7 @@ public protocol TableSource : _Table {
     func willDeselectRowAtIndexPath(_ indexPath: IndexPath) -> IndexPath?
     func didSelectRowAtIndexPath(_ indexPath: IndexPath)
     func didDeselectRowAtIndexPath(_ indexPath: IndexPath)
-    func editingStyleForRowAtIndexPath(_ indexPath: IndexPath) -> UITableViewCellEditingStyle
+    func editingStyleForRowAtIndexPath(_ indexPath: IndexPath) -> UITableViewCell.EditingStyle
     func titleForDeleteConfirmationButtonForRowAtIndexPath(_ indexPath: IndexPath) -> String?
     func editActionsForRowAtIndexPath(_ indexPath: IndexPath) -> [UITableViewRowAction]?
     func shouldIndentWhileEditingRowAtIndexPath(_ indexPath: IndexPath) -> Bool
@@ -53,7 +53,7 @@ public protocol TableSource : _Table {
     func canMoveRowAtIndexPath(_ indexPath: IndexPath) -> Bool
     var sectionIndexTitles: [String]? { get }
     func sectionForSectionIndexTitle(_ title: String, atIndex index: Int) -> Int
-    func commitEditingStyle(_ editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: IndexPath)
+    func commitEditingStyle(_ editingStyle: UITableViewCell.EditingStyle, forRowAtIndexPath indexPath: IndexPath)
     func moveRowAtIndexPath(_ sourceIndexPath: IndexPath, toIndexPath destinationIndexPath: IndexPath)
     
 }

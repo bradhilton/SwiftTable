@@ -96,7 +96,7 @@ extension SectionSource where Self : TableSource {
         didDeselectRow(indexPath.row)
     }
     
-    public func editingStyleForRowAtIndexPath(_ indexPath: IndexPath) -> UITableViewCellEditingStyle {
+    public func editingStyleForRowAtIndexPath(_ indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return editingStyleForRow(indexPath.row)
     }
     
@@ -171,7 +171,7 @@ extension SectionSource where Self : TableSource {
         return 0
     }
     
-    public func commitEditingStyle(_ editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: IndexPath) {
+    public func commitEditingStyle(_ editingStyle: UITableViewCell.EditingStyle, forRowAtIndexPath indexPath: IndexPath) {
         commitEditingStyle(editingStyle, forRow: indexPath.row)
     }
     

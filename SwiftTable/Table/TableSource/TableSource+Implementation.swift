@@ -77,7 +77,7 @@ extension TableSource {
     public func didSelectRowAtIndexPath(_ indexPath: IndexPath) {}
     public func didDeselectRowAtIndexPath(_ indexPath: IndexPath) {}
     
-    public func editingStyleForRowAtIndexPath(_ indexPath: IndexPath) -> UITableViewCellEditingStyle {
+    public func editingStyleForRowAtIndexPath(_ indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .none
     }
     
@@ -146,7 +146,7 @@ extension TableSource {
         return 0
     }
     
-    public func commitEditingStyle(_ editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: IndexPath) {}
+    public func commitEditingStyle(_ editingStyle: UITableViewCell.EditingStyle, forRowAtIndexPath indexPath: IndexPath) {}
     
     public func moveRowAtIndexPath(_ sourceIndexPath: IndexPath, toIndexPath destinationIndexPath: IndexPath) {}
     

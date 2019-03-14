@@ -93,7 +93,7 @@ extension SectionSource {
     public func didSelectRow(_ row: Int) {}
     public func didDeselectRow(_ row: Int) {}
     
-    public func editingStyleForRow(_ row: Int) -> UITableViewCellEditingStyle {
+    public func editingStyleForRow(_ row: Int) -> UITableViewCell.EditingStyle {
         return .none
     }
     public func titleForDeleteConfirmationButtonForRow(_ row: Int) -> String? {
@@ -169,7 +169,7 @@ extension SectionSource {
         }
     }
     
-    public func commitEditingStyle(_ editingStyle: UITableViewCellEditingStyle, forRow row: Int) {}
+    public func commitEditingStyle(_ editingStyle: UITableViewCell.EditingStyle, forRow row: Int) {}
     public func moveRow(_ sourceRow: Int, toRow destinationRow: Int) {}
     
 }

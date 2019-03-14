@@ -22,7 +22,7 @@ public protocol RowSource : _Row {
     var willDeselect: Bool { get }
     func didSelect()
     func didDeselect()
-    var editingStyle: UITableViewCellEditingStyle { get }
+    var editingStyle: UITableViewCell.EditingStyle { get }
     var titleForDeleteConfirmationButton: String? { get }
     var editActions: [UITableViewRowAction]? { get }
     var shouldIndentWhileEditing: Bool { get }
@@ -36,7 +36,7 @@ public protocol RowSource : _Row {
     var cell: UITableViewCell { get }
     var canEdit: Bool { get }
     var canMove: Bool { get }
-    func commitEditingStyle(_ editingStyle: UITableViewCellEditingStyle)
+    func commitEditingStyle(_ editingStyle: UITableViewCell.EditingStyle)
     
 }
 

@@ -56,31 +56,31 @@ extension MultiSection {
         return table?.footerViewForSection(self)
     }
     
-    public func scrollToRow(_ row: Int, inSection section: SectionSource, atScrollPosition scrollPosition: UITableViewScrollPosition, animated: Bool) {
+    public func scrollToRow(_ row: Int, inSection section: SectionSource, atScrollPosition scrollPosition: UITableView.ScrollPosition, animated: Bool) {
         table?.scrollToRow(rowFromSection(section, row: row), inSection: self, atScrollPosition: scrollPosition, animated: animated)
     }
     
-    public func insertSection(_ section: SectionSource, withRowAnimation animation: UITableViewRowAnimation) {
+    public func insertSection(_ section: SectionSource, withRowAnimation animation: UITableView.RowAnimation) {
         table?.insertRows(rowsFromSection(section), inSection: self, withRowAnimation: animation)
     }
     
-    public func deleteSection(_ section: SectionSource, withRowAnimation animation: UITableViewRowAnimation) {
+    public func deleteSection(_ section: SectionSource, withRowAnimation animation: UITableView.RowAnimation) {
         table?.deleteRows(rowsFromSection(section), inSection: self, withRowAnimation: animation)
     }
     
-    public func reloadSection(_ section: SectionSource, withRowAnimation animation: UITableViewRowAnimation) {
+    public func reloadSection(_ section: SectionSource, withRowAnimation animation: UITableView.RowAnimation) {
         table?.deleteRows(rowsFromSection(section), inSection: self, withRowAnimation: animation)
     }
     
-    public func insertRows(_ rows: [Int], inSection section: SectionSource, withRowAnimation animation: UITableViewRowAnimation) {
+    public func insertRows(_ rows: [Int], inSection section: SectionSource, withRowAnimation animation: UITableView.RowAnimation) {
         table?.insertRows(rowsFromSection(section, rows: rows), inSection: self, withRowAnimation: animation)
     }
     
-    public func deleteRows(_ rows: [Int], inSection section: SectionSource, withRowAnimation animation: UITableViewRowAnimation) {
+    public func deleteRows(_ rows: [Int], inSection section: SectionSource, withRowAnimation animation: UITableView.RowAnimation) {
         table?.deleteRows(rowsFromSection(section, rows: rows), inSection: self, withRowAnimation: animation)
     }
     
-    public func reloadRows(_ rows: [Int], inSection section: SectionSource, withRowAnimation animation: UITableViewRowAnimation) {
+    public func reloadRows(_ rows: [Int], inSection section: SectionSource, withRowAnimation animation: UITableView.RowAnimation) {
         table?.reloadRows(rowsFromSection(section, rows: rows), inSection: self, withRowAnimation: animation)
     }
     
@@ -93,10 +93,10 @@ extension MultiSection {
     }
     
     public func selectedRowsInSection(_ section: SectionSource) -> [Int]? {
-        return table?.selectedRowsInSection(section)?.flatMap { rowForSection(section, row: $0) }
+        return table?.selectedRowsInSection(section)?.compactMap { rowForSection(section, row: $0) }
     }
     
-    public func selectRow(_ row: Int?, inSection section: SectionSource, animated: Bool, scrollPosition: UITableViewScrollPosition) {
+    public func selectRow(_ row: Int?, inSection section: SectionSource, animated: Bool, scrollPosition: UITableView.ScrollPosition) {
         table?.selectRow(row.flatMap { self.rowFromSection(section, row: $0) }, inSection: self, animated: animated, scrollPosition: scrollPosition)
     }
     

@@ -15,7 +15,7 @@ class EmptySection : RowSection {
 }
 
 public protocol _Row : class {
-    weak var section: SectionInterface? { get set }
+    var section: SectionInterface? { get set }
 }
 
 extension _Row {

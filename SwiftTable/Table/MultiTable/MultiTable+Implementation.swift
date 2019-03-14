@@ -106,7 +106,7 @@ extension MultiTable {
         delegate(indexPath) { $0.didDeselectRowAtIndexPath($1) }
     }
     
-    public func editingStyleForRowAtIndexPath(_ indexPath: IndexPath) -> UITableViewCellEditingStyle {
+    public func editingStyleForRowAtIndexPath(_ indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return delegate(indexPath) { $0.editingStyleForRowAtIndexPath($1) } ?? .none
     }
     
@@ -187,7 +187,7 @@ extension MultiTable {
         return source.sectionForSectionIndexTitle(title, atIndex: index) + sectionOffsetForTable(source)
     }
     
-    public func commitEditingStyle(_ editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: IndexPath) {
+    public func commitEditingStyle(_ editingStyle: UITableViewCell.EditingStyle, forRowAtIndexPath indexPath: IndexPath) {
         delegate(indexPath) { $0.commitEditingStyle(editingStyle, forRowAtIndexPath: $1) }
     }
     

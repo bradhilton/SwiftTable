@@ -56,31 +56,31 @@ extension SectionTable {
         return delegate(section) { self.parent?.footerViewForSection($0, inTable: self) }
     }
     
-    public func scrollToRow(_ row: Int, inSection section: SectionSource, atScrollPosition scrollPosition: UITableViewScrollPosition, animated: Bool) {
+    public func scrollToRow(_ row: Int, inSection section: SectionSource, atScrollPosition scrollPosition: UITableView.ScrollPosition, animated: Bool) {
         delegate(section) { self.parent?.scrollToRowAtIndexPath(IndexPath(row: row, section: $0), inTable: self, atScrollPosition: scrollPosition, animated: animated) }
     }
     
-    public func insertSection(_ section: SectionSource, withRowAnimation animation: UITableViewRowAnimation) {
+    public func insertSection(_ section: SectionSource, withRowAnimation animation: UITableView.RowAnimation) {
         delegate(section) { self.parent?.insertSections(IndexSet(integer: $0), inTable: self, withRowAnimation: animation) }
     }
     
-    public func deleteSection(_ section: SectionSource, withRowAnimation animation: UITableViewRowAnimation) {
+    public func deleteSection(_ section: SectionSource, withRowAnimation animation: UITableView.RowAnimation) {
         delegate(section) { self.parent?.deleteSections(IndexSet(integer: $0), inTable: self, withRowAnimation: animation) }
     }
     
-    public func reloadSection(_ section: SectionSource, withRowAnimation animation: UITableViewRowAnimation) {
+    public func reloadSection(_ section: SectionSource, withRowAnimation animation: UITableView.RowAnimation) {
         delegate(section) { self.parent?.reloadSections(IndexSet(integer: $0), inTable: self, withRowAnimation: animation) }
     }
     
-    public func insertRows(_ rows: [Int], inSection section: SectionSource, withRowAnimation animation: UITableViewRowAnimation) {
+    public func insertRows(_ rows: [Int], inSection section: SectionSource, withRowAnimation animation: UITableView.RowAnimation) {
         parent?.insertRowsAtIndexPaths(indexPathsFromRows(rows, inSection: section), inTable: self, withRowAnimation: animation)
     }
     
-    public func deleteRows(_ rows: [Int], inSection section: SectionSource, withRowAnimation animation: UITableViewRowAnimation) {
+    public func deleteRows(_ rows: [Int], inSection section: SectionSource, withRowAnimation animation: UITableView.RowAnimation) {
         parent?.deleteRowsAtIndexPaths(indexPathsFromRows(rows, inSection: section), inTable: self, withRowAnimation: animation)
     }
     
-    public func reloadRows(_ rows: [Int], inSection section: SectionSource, withRowAnimation animation: UITableViewRowAnimation) {
+    public func reloadRows(_ rows: [Int], inSection section: SectionSource, withRowAnimation animation: UITableView.RowAnimation) {
         parent?.reloadRowsAtIndexPaths(indexPathsFromRows(rows, inSection: section), inTable: self, withRowAnimation: animation)
     }
     
@@ -96,7 +96,7 @@ extension SectionTable {
         return rowsForSection(section, fromIndexPaths: self.parent?.indexPathsForSelectedRowsInTable(self))
     }
     
-    public func selectRow(_ row: Int?, inSection section: SectionSource, animated: Bool, scrollPosition: UITableViewScrollPosition) {
+    public func selectRow(_ row: Int?, inSection section: SectionSource, animated: Bool, scrollPosition: UITableView.ScrollPosition) {
         delegate(section) { self.parent?.selectRowAtIndexPath(IndexPath(row: row, section: $0), inTable: self, animated: animated, scrollPosition: scrollPosition) }
     }
     

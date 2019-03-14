@@ -32,7 +32,7 @@ public protocol SectionSource : _Section {
     func willDeselectRow(_ row: Int) -> Int?
     func didSelectRow(_ row: Int)
     func didDeselectRow(_ row: Int)
-    func editingStyleForRow(_ row: Int) -> UITableViewCellEditingStyle
+    func editingStyleForRow(_ row: Int) -> UITableViewCell.EditingStyle
     func titleForDeleteConfirmationButtonForRow(_ row: Int) -> String?
     func editActionsForRow(_ row: Int) -> [UITableViewRowAction]?
     func shouldIndentWhileEditingRow(_ row: Int) -> Bool
@@ -51,7 +51,7 @@ public protocol SectionSource : _Section {
     func canEditRow(_ row: Int) -> Bool
     func canMoveRow(_ row: Int) -> Bool
     var sectionIndexTitle: String? { get }
-    func commitEditingStyle(_ editingStyle: UITableViewCellEditingStyle, forRow row: Int)
+    func commitEditingStyle(_ editingStyle: UITableViewCell.EditingStyle, forRow row: Int)
     func moveRow(_ sourceRow: Int, toRow destinationRow: Int)
     
 }

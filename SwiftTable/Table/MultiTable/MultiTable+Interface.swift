@@ -9,7 +9,7 @@
 
 extension MultiTable {
     
-    public var style: UITableViewStyle {
+    public var style: UITableView.Style {
         return _parent.style
     }
     
@@ -149,11 +149,11 @@ extension MultiTable {
         return parent?.footerViewForSection(sectionFromTable(table, section: section), inTable: self)
     }
     
-    public func scrollToRowAtIndexPath(_ indexPath: IndexPath, inTable table: TableSource, atScrollPosition scrollPosition: UITableViewScrollPosition, animated: Bool) {
+    public func scrollToRowAtIndexPath(_ indexPath: IndexPath, inTable table: TableSource, atScrollPosition scrollPosition: UITableView.ScrollPosition, animated: Bool) {
         parent?.scrollToRowAtIndexPath(indexPathFromTable(table, indexPath: indexPath), inTable: self, atScrollPosition: scrollPosition, animated: animated)
     }
     
-    public func scrollToNearestSelectedRowAtScrollPosition(_ scrollPosition: UITableViewScrollPosition, animated: Bool) {
+    public func scrollToNearestSelectedRowAtScrollPosition(_ scrollPosition: UITableView.ScrollPosition, animated: Bool) {
         parent?.scrollToNearestSelectedRowAtScrollPosition(scrollPosition, animated: animated)
     }
     
@@ -165,15 +165,15 @@ extension MultiTable {
         parent?.endUpdates()
     }
     
-    public func insertSections(_ sections: IndexSet, inTable table: TableSource, withRowAnimation animation: UITableViewRowAnimation) {
+    public func insertSections(_ sections: IndexSet, inTable table: TableSource, withRowAnimation animation: UITableView.RowAnimation) {
         parent?.insertSections(indexSetFromTable(table, indexSet: sections), inTable: self, withRowAnimation: animation)
     }
     
-    public func deleteSections(_ sections: IndexSet, inTable table: TableSource, withRowAnimation animation: UITableViewRowAnimation) {
+    public func deleteSections(_ sections: IndexSet, inTable table: TableSource, withRowAnimation animation: UITableView.RowAnimation) {
         parent?.deleteSections(indexSetFromTable(table, indexSet: sections), inTable: self, withRowAnimation: animation)
     }
     
-    public func reloadSections(_ sections: IndexSet, inTable table: TableSource, withRowAnimation animation: UITableViewRowAnimation) {
+    public func reloadSections(_ sections: IndexSet, inTable table: TableSource, withRowAnimation animation: UITableView.RowAnimation) {
         parent?.reloadSections(indexSetFromTable(table, indexSet: sections), inTable: self, withRowAnimation: animation)
     }
     
@@ -181,15 +181,15 @@ extension MultiTable {
         parent?.moveSection(sectionFromTable(table, section: section), toSection: sectionFromTable(table, section: newSection), inTable: self)
     }
     
-    public func insertRowsAtIndexPaths(_ indexPaths: [IndexPath], inTable table: TableSource, withRowAnimation animation: UITableViewRowAnimation) {
+    public func insertRowsAtIndexPaths(_ indexPaths: [IndexPath], inTable table: TableSource, withRowAnimation animation: UITableView.RowAnimation) {
         parent?.insertRowsAtIndexPaths(indexPathsFromTable(table, indexPaths: indexPaths), inTable: self, withRowAnimation: animation)
     }
     
-    public func deleteRowsAtIndexPaths(_ indexPaths: [IndexPath], inTable table: TableSource, withRowAnimation animation: UITableViewRowAnimation) {
+    public func deleteRowsAtIndexPaths(_ indexPaths: [IndexPath], inTable table: TableSource, withRowAnimation animation: UITableView.RowAnimation) {
         parent?.deleteRowsAtIndexPaths(indexPathsFromTable(table, indexPaths: indexPaths), inTable: self, withRowAnimation: animation)
     }
     
-    public func reloadRowsAtIndexPaths(_ indexPaths: [IndexPath], inTable table: TableSource, withRowAnimation animation: UITableViewRowAnimation) {
+    public func reloadRowsAtIndexPaths(_ indexPaths: [IndexPath], inTable table: TableSource, withRowAnimation animation: UITableView.RowAnimation) {
         parent?.reloadRowsAtIndexPaths(indexPathsFromTable(table, indexPaths: indexPaths), inTable: self, withRowAnimation: animation)
     }
     
@@ -255,7 +255,7 @@ extension MultiTable {
         return indexPathsForTable(table, indexPaths: parent?.indexPathsForSelectedRowsInTable(self))
     }
     
-    public func selectRowAtIndexPath(_ indexPath: IndexPath?, inTable table: TableSource, animated: Bool, scrollPosition: UITableViewScrollPosition) {
+    public func selectRowAtIndexPath(_ indexPath: IndexPath?, inTable table: TableSource, animated: Bool, scrollPosition: UITableView.ScrollPosition) {
         let mappedIndexPath: IndexPath? = indexPath != nil ? indexPathFromTable(table, indexPath: indexPath!) : nil
         parent?.selectRowAtIndexPath(mappedIndexPath, inTable: self, animated: animated, scrollPosition: scrollPosition)
     }
@@ -300,7 +300,7 @@ extension MultiTable {
         }
     }
     
-    public var separatorStyle: UITableViewCellSeparatorStyle {
+    public var separatorStyle: UITableViewCell.SeparatorStyle {
         get {
             return _parent.separatorStyle
         }

@@ -41,7 +41,7 @@ extension RowSource {
     public func didSelect() {}
     public func didDeselect() {}
     
-    public var editingStyle: UITableViewCellEditingStyle {
+    public var editingStyle: UITableViewCell.EditingStyle {
         return .none
     }
     
@@ -82,6 +82,6 @@ extension RowSource {
         return false
     }
     
-    public func commitEditingStyle(_ editingStyle: UITableViewCellEditingStyle) {}
+    public func commitEditingStyle(_ editingStyle: UITableViewCell.EditingStyle) {}
     
 }

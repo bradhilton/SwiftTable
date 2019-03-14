@@ -98,7 +98,7 @@ extension SectionTable {
         sections[indexPath.section].didDeselectRow(indexPath.row)
     }
     
-    public func editingStyleForRowAtIndexPath(_ indexPath: IndexPath) -> UITableViewCellEditingStyle {
+    public func editingStyleForRowAtIndexPath(_ indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return sections[indexPath.section].editingStyleForRow(indexPath.row)
     }
     
@@ -167,7 +167,7 @@ extension SectionTable {
     }
     
     public var sectionIndexTitles: [String]? {
-        let sectionIndexTitles = sections.flatMap { $0.sectionIndexTitle }
+        let sectionIndexTitles = sections.compactMap { $0.sectionIndexTitle }
         return sectionIndexTitles.count > 0 ? sectionIndexTitles : nil
     }
     
@@ -175,7 +175,7 @@ extension SectionTable {
         return (0..<sections.count).filter({ sections[$0].sectionIndexTitle != nil })[index]
     }
     
-    public func commitEditingStyle(_ editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: IndexPath) {
+    public func commitEditingStyle(_ editingStyle: UITableViewCell.EditingStyle, forRowAtIndexPath indexPath: IndexPath) {
         sections[indexPath.section].commitEditingStyle(editingStyle, forRow: indexPath.row)
     }
     
