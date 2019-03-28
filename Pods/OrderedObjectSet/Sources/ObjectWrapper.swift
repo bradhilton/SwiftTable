@@ -10,9 +10,10 @@ struct ObjectWrapper : Hashable {
     
     let object: AnyObject
     
-    var hashValue: Int {
-        return Unmanaged.passUnretained(object).toOpaque().hashValue
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(Unmanaged.passUnretained(object).toOpaque().hashValue)
     }
+
     
     init(_ object: AnyObject) {
         self.object = object

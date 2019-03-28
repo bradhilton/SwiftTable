@@ -31,11 +31,11 @@ extension SectionTable {
     }
     
     func index(_ section: SectionSource) -> Int? {
-        return sections.index { $0 === section }
+        return sections.firstIndex { $0 === section }
     }
     
     func delegate<T>(_ section: SectionSource, handler: (Int) -> T?) -> T? {
-        guard let index = sections.index(where: { $0 === section }) else { return nil }
+        guard let index = sections.firstIndex(where: { $0 === section }) else { return nil }
         return handler(index)
     }
     

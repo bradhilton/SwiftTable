@@ -22,7 +22,7 @@ extension OrderedObjectSet {
     
     /// Remove the member from the ordered set and return it if it was present.
     public mutating func remove(_ member: Element) -> Element? {
-        guard let index = array.index(of: ObjectWrapper(member as AnyObject)) else { return nil }
+        guard let index = array.firstIndex(of: ObjectWrapper(member as AnyObject)) else { return nil }
         set.remove(ObjectWrapper(member as AnyObject))
         return array.remove(at: index).object as? Element
     }

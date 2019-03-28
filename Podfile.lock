@@ -1,12 +1,16 @@
 PODS:
-  - OrderedObjectSet (3.0.0)
+  - OrderedObjectSet (5.0.0)
 
 DEPENDENCIES:
-  - OrderedObjectSet (~> 3.0.0)
+  - OrderedObjectSet (= 5.0.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - OrderedObjectSet
 
 SPEC CHECKSUMS:
-  OrderedObjectSet: b6907ba8705510f6b94ed1a1adc434bb74f6c7fc
+  OrderedObjectSet: 7eb2d546c515a9dc5ac321ce5605d4e96f5d4c3c
 
 PODFILE CHECKSUM: 53fb719d86df22c1a21eb0a60f15dcdb84caf2ac
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.7.0.beta.2

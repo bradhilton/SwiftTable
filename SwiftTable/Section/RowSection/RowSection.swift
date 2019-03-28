@@ -31,7 +31,7 @@ extension RowSection {
     }
     
     func index(_ row: RowSource) -> Int? {
-        return rows.index { $0 === row }
+        return rows.firstIndex { $0 === row }
     }
     
     func delegate<T>(_ row: RowSource, handler: (Int) -> T?) -> T? {
